@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сертик* — подарочные сертификаты для вашего бизнеса</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header__inner container">
+    <a href="#" class="logo">
+      <div class="logo__mark">С</div>
+      <span class="logo__text">Сертик<sup>*</sup></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#benefits" class="nav__link">Преимущества</a>
+      <a href="#tester" class="nav__link">Как работает</a>
+      <a href="#faq" class="nav__link">FAQ</a>
+      <a href="#pricing" class="nav__link">Тарифы</a>
+      <a href="#contacts" class="btn btn--outline btn--sm">Связаться</a>
+      <a href="#contacts" class="btn btn--primary btn--sm">Оставить заявку</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#benefits" class="mobile-link">Преимущества</a>
+    <a href="#tester" class="mobile-link">Как работает</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+    <a href="#pricing" class="mobile-link">Тарифы</a>
+    <a href="#contacts" class="btn btn--primary mobile-cta">Оставить заявку</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__decor" aria-hidden="true">
+    <div class="hd-circle hd-circle--1"></div>
+    <div class="hd-circle hd-circle--2"></div>
+    <div class="hd-dots"></div>
+  </div>
+
+  <div class="hero__content container">
+    <h1 class="hero__h1">Сертик<sup>*</sup></h1>
+    <p class="hero__note">
+      <em>*</em>&nbsp;современное решение для продажи и контроля подарочных сертификатов
+    </p>
+    <div class="hero__btns">
+      <a href="#tester" class="btn btn--primary btn--xl">
+        Протестировать
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#pricing" class="btn btn--ghost btn--xl">Посмотреть тарифы</a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="benefits">
+  <div class="container">
+    <div class="sh reveal">
+      <div class="sh__label">почему сертик</div>
+      <h2 class="sh__title">Всё, что нужно —<br>уже внутри</h2>
+    </div>
+    <div class="bento">
+
+      <div class="bcard bcard--lg reveal" data-d="0">
+        <div class="bcard__tag">🌙</div>
+        <h3>Продажи 24/7</h3>
+        <p>Сертификаты продаются круглосуточно — пока вы спите, бизнес работает. Никаких звонков, никаких «перезвоните завтра».</p>
+        <div class="bcard__visual">
+          <div class="chart-bars">
+            <div class="cb" style="--h:55%"></div>
+            <div class="cb" style="--h:70%"></div>
+            <div class="cb" style="--h:40%"></div>
+            <div class="cb" style="--h:85%"></div>
+            <div class="cb cb--night" style="--h:65%"></div>
+            <div class="cb cb--night" style="--h:50%"></div>
+            <div class="cb cb--night" style="--h:75%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bcard reveal" data-d="80">
+        <div class="bcard__tag">⚡</div>
+        <h3>Авто-заполнение</h3>
+        <p>Сертификат автоматически заполняется и появляется в панели сразу после оплаты — ноль ручного труда.</p>
+      </div>
+
+      <div class="bcard reveal" data-d="160">
+        <div class="bcard__tag">🎨</div>
+        <h3>Дизайн под вас</h3>
+        <p>Кастомизация под фирменный стиль и встройка на ваш сайт. Клиент не заметит сторонний сервис.</p>
+      </div>
+
+      <div class="bcard reveal" data-d="240">
+        <div class="bcard__tag">📊</div>
+        <h3>Умная админка</h3>
+        <p>Все сертификаты в одном месте. Мгновенные уведомления о новых продажах прямо в Telegram.</p>
+      </div>
+
+      <div class="bcard bcard--accent reveal" data-d="320">
+        <div class="bcard__tag">🤝</div>
+        <h3>Поддержка всегда</h3>
+        <p>Установка под ключ и живая поддержка после. Не бросаем после запуска — вы не один.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTER -->
+<section class="tester" id="tester">
+  <div class="container">
+    <div class="sh reveal">
+      <div class="sh__label">интерактивный тест</div>
+      <h2 class="sh__title">Все в одном месте</h2>
+      <p class="sh__sub">Ведите учёт на любом устройстве — попробуйте прямо здесь</p>
+    </div>
+
+    <div class="tester__devices" id="testerDevices">
+
+      <!-- ══════════════════════════════════════
+           iPhone: 440x872 PNG, transparent bg
+           Screen: left=5.24% top=2.53% w=89.07% h=94.83%
+           ══════════════════════════════════════ -->
+      <div class="td td--iphone reveal">
+
+        <!-- Tooltip bubble to the LEFT of the phone -->
+        <div class="tester-tip" id="testerTip">
+          <div class="tester-tip__card">
+            <div class="tester-tip__dot"></div>
+            <span>Нажмите кнопку —<br>это интерактивно!</span>
+          </div>
+          <div class="tester-tip__arr"></div>
+        </div>
+
+        <div class="td__label">Покупатель</div>
+
+        <!-- iPhone mockup: image + screen overlay -->
+        <div class="phone-wrap">
+          <img src="iphone.png" class="phone-img" alt="iPhone" draggable="false">
+          <div class="phone-screen">
+
+            <!-- iOS notification INSIDE screen (slides down from top) -->
+            <div class="ios-notif" id="iosNotif">
+              <div class="ios-notif__app-icon">С*</div>
+              <div class="ios-notif__text">
+                <strong>Сертик*</strong>
+                <span>Ваш сертификат готов 🎁</span>
+              </div>
+            </div>
+
+            <!-- Form state -->
+            <div id="iphForm">
+              <div class="iph-header">
+                <div class="iph-logo"></div>
+                <span class="iph-brand">Ваш логотип</span>
+              </div>
+              <div class="iph-cert-preview">
+                <div class="iph-cert-icon">🎁</div>
+                <div class="iph-cert-label">Подарочный сертификат</div>
+              </div>
+              <div class="iph-form">
+                <div class="iph-field">
+                  <div class="iph-flabel">Получатель</div>
+                  <div class="iph-finput">Анна Смирнова</div>
+                </div>
+                <div class="iph-field">
+                  <div class="iph-flabel">Номинал</div>
+                  <div class="iph-finput iph-sel">3 000 ₽ <span>▾</span></div>
+                </div>
+                <div class="iph-field">
+                  <div class="iph-flabel">Сообщение</div>
+                  <div class="iph-finput iph-msg">С днём рождения! 🎉</div>
+                </div>
+                <button class="iph-btn" id="buyBtn">Оплатить</button>
+              </div>
+            </div>
+            <!-- Success state -->
+            <div id="iphSuccess" class="iph-success">
+              <div class="iph-s-icon">🎉</div>
+              <div class="iph-s-title">Сертификат оформлен!</div>
+              <div class="iph-s-sub">Ссылка на оплату отправлена на почту</div>
+              <div class="iph-s-cert">
+                <div class="iph-s-cert-name">Ваш логотип</div>
+                <div class="iph-s-cert-sum">3 000 ₽</div>
+                <div class="iph-s-cert-type">Подарочный сертификат</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /td--iphone -->
+
+      <!-- Arrow connector -->
+      <div class="tester__connector" aria-hidden="true">
+        <div class="tc-pulse"></div>
+        <div class="tc-line"></div>
+        <div class="tc-head">→</div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           MacBook: 1301x854 PNG, transparent bg
+           Screen: left=9.15% top=1.99% w=81.85% h=76.55%
+           Shown full width, centered
+           ══════════════════════════════════════ -->
+      <div class="td td--mac reveal" data-d="100">
+        <div class="td__label">Владелец бизнеса</div>
+
+        <div class="mac-wrap">
+          <img src="macbook.png" class="mac-img" alt="MacBook" draggable="false">
+          <div class="mac-screen">
+            <div class="mac-ui">
+              <div class="mac-sidebar">
+                <div class="mac-sb-logo">🎁</div>
+                <div class="mac-sb-link active">Сертификаты</div>
+                <div class="mac-sb-link">Статистика</div>
+                <div class="mac-sb-link">Клиенты</div>
+                <div class="mac-sb-link">Настройки</div>
+              </div>
+              <div class="mac-body">
+                <div class="mac-body-head">
+                  <span>Сертификаты</span>
+                  <div class="mac-new-badge" id="macBadge">Новый!</div>
+                </div>
+                <div class="mac-tbl">
+                  <div class="mac-tbl-head"><span>Получатель</span><span>Сумма</span><span>Статус</span></div>
+                  <div class="mac-tbl-row"><span>Мария К.</span><span>5 000 ₽</span><span class="mst mst--paid">Оплачено</span></div>
+                  <div class="mac-tbl-row"><span>Игорь П.</span><span>2 500 ₽</span><span class="mst mst--paid">Оплачено</span></div>
+                  <div class="mac-tbl-row mac-tbl-row--new" id="macNewRow">
+                    <span>Анна С.</span>
+                    <span>3 000 ₽</span>
+                    <span class="mst mst--pending" id="macNewStatus">Ожидает оплаты</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /td--mac -->
+
+    </div><!-- /tester__devices -->
+
+    <div class="tester__hint" id="testerHint">👆 Нажмите «Оформить сертификат» на экране айфона</div>
+    <div class="tester__reset" id="testerReset">
+      <button class="btn btn--outline" id="resetBtn">↺ Попробовать снова</button>
+    </div>
+  </div>
+
+  <!-- Admin demo -->
+  <div class="ademo">
+    <div class="container">
+      <div class="sh reveal" style="margin-bottom:48px">
+        <div class="sh__label">демо-панель</div>
+        <h2 class="sh__title">Администрируй просто и быстро</h2>
+      </div>
+      <div class="ademo__layout reveal">
+        <div class="ademo__screen" id="ademoScreen">
+          <div class="ademo__win">
+            <div class="ademo__win-bar">
+              <div class="ademo__dots"><span></span><span></span><span></span></div>
+              <span>Панель управления — Сертик*</span>
+            </div>
+            <div class="ademo__win-body">
+              <div class="ademo__sidebar">
+                <div class="ademo__sb-item active">🎁 Сертификаты</div>
+                <div class="ademo__sb-item">📈 Аналитика</div>
+                <div class="ademo__sb-item">⚙️ Настройки</div>
+              </div>
+              <div class="ademo__main" id="ademoMain">
+                <div class="ademo__toolbar">
+                  <div class="ademo__search"></div>
+                  <button class="ademo__add" id="ademoAddBtn">+ Добавить</button>
+                </div>
+                <div class="ademo__list" id="ademoList">
+                  <div class="ademo__row ademo__row--head"><span>Клиент</span><span>Сумма</span><span>Статус</span><span></span></div>
+                  <div class="ademo__row"><span>Мария К.</span><span>5 000 ₽</span><span class="ast ast--paid">Оплачено</span><span class="ademo__close-btn">✕</span></div>
+                  <div class="ademo__row"><span>Игорь П.</span><span>2 500 ₽</span><span class="ast ast--paid">Оплачено</span><span class="ademo__close-btn">✕</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ademo__features">
+          <div class="af-item reveal" data-d="0">
+            <div class="af-icon">🔔</div>
+            <div class="af-text">
+              <strong>Мгновенные уведомления</strong>
+              <p>Новая продажа — уведомление в Telegram и на почту мгновенно.</p>
+            </div>
+          </div>
+          <div class="af-item reveal" data-d="80">
+            <div class="af-icon">📱</div>
+            <div class="af-text">
+              <strong>С любого устройства</strong>
+              <p>Панель адаптирована под телефон, планшет и компьютер.</p>
+            </div>
+          </div>
+          <div class="af-item reveal" data-d="160">
+            <div class="af-icon">✏️</div>
+            <div class="af-text">
+              <strong>Ручное добавление</strong>
+              <p>Можно добавить сертификат вручную — для офлайн-продаж.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sh reveal">
+      <div class="sh__label">вопросы и ответы</div>
+      <h2 class="sh__title">Всё, что вы хотели спросить</h2>
+    </div>
+    <div class="faq__list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Какие платёжные системы поддерживаются?</span>
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-a"><p>Подключается любой интернет-эквайринг: ЮКасса (ЮMoney), Сбер Бизнес Online, Тинькофф Эквайринг, Robokassa и другие. Выбираете тот, который уже используете или который удобнее по условиям.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Как вести учёт сертификатов?</span>
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-a"><p>Для вас разработана удобная административная панель, адаптированная под любое устройство — телефон, планшет или компьютер. Все сертификаты в одном месте: кто купил, на какую сумму, статус оплаты и использования.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Как клиент получает сертификат?</span>
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-a"><p>После оплаты сертификат автоматически заполняется и отправляется на почту клиента. Также он может скачать сертификат сразу на странице успешной оплаты — мгновенно, без ожидания.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Можно ли перейти с другой системы?</span>
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-a"><p>Да, переход возможен. При оформлении заявки укажите, откуда нужно перенести данные о действующих сертификатах — мы всё сделаем сами.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Возможно ли сменить тариф?</span>
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-a"><p>Да, вы можете заказать обновление дизайна и подключение к домену вашего сайта в любой момент. Просто напишите нам — обсудим детали и согласуем сроки.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="sh reveal">
+      <div class="sh__label">тарифы</div>
+      <h2 class="sh__title">Выберите свой формат</h2>
+      <p class="sh__sub">Оба тарифа включают облачное хранилище и полноценную административную панель</p>
+    </div>
+    <div class="plans">
+
+      <div class="plan reveal" data-d="0">
+        <div class="plan__name">Старт</div>
+        <div class="plan__setup">10 000 ₽ <span>разовая оплата</span></div>
+        <div class="plan__monthly"><strong>2 000 ₽</strong> / месяц</div>
+        <div class="plan__divider"></div>
+        <ul class="plan__list">
+          <li><span class="plc">✓</span> Подключение к вашему сайту</li>
+          <li><span class="plc">✓</span> Клиент получает ваш сертификат</li>
+          <li><span class="plc">✓</span> Облачная база данных</li>
+          <li><span class="plc">✓</span> Административная панель</li>
+          <li><span class="plc">✓</span> Уведомления о продажах</li>
+        </ul>
+        <a href="#contacts" class="btn btn--outline btn--full">Выбрать тариф</a>
+      </div>
+
+      <div class="plan plan--hot reveal" data-d="100">
+        <div class="plan__badge-top">🔥 Популярный</div>
+        <div class="plan__name">Профи</div>
+        <div class="plan__setup">30 000 ₽ <span>разовая оплата</span></div>
+        <div class="plan__monthly"><strong>2 000 ₽</strong> / месяц</div>
+        <div class="plan__divider"></div>
+        <ul class="plan__list">
+          <li><span class="plc">✓</span> <strong>Дизайн формы под ваш бизнес</strong></li>
+          <li><span class="plc">✓</span> <strong>Подключение к вашему домену</strong></li>
+          <li><span class="plc">✓</span> Полная интеграция в сайт</li>
+          <li><span class="plc">✓</span> Клиент получает ваш сертификат</li>
+          <li><span class="plc">✓</span> Облачная база данных</li>
+          <li><span class="plc">✓</span> Административная панель</li>
+          <li><span class="plc">✓</span> Уведомления о продажах</li>
+        </ul>
+        <a href="#contacts" class="btn btn--primary btn--full">Выбрать тариф</a>
+        <div class="plan__tip">Повышает конверсию — клиент остаётся на вашем домене</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts" id="contacts">
+  <div class="container">
+    <div class="sh reveal">
+      <div class="sh__label">связаться</div>
+      <h2 class="sh__title">Подключим ваш бизнес</h2>
+    </div>
+    <div class="contacts__cols">
+
+      <div class="contacts__info reveal">
+        <div class="ci-title">Напишите мне</div>
+        <div class="ci-sub">Обсудим проект, ответим на вопросы, согласуем детали</div>
+        <div class="clinks">
+          <a href="https://t.me/username" class="clink" target="_blank">
+            <div class="clink__ic clink__ic--tg">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.448 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.243-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+            </div>
+            <div class="clink__info"><span>Telegram</span><strong>@username</strong></div>
+            <div class="clink__arr">→</div>
+          </a>
+          <a href="https://vk.com/username" class="clink" target="_blank">
+            <div class="clink__ic clink__ic--vk">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.6-.19 1.37 1.26 2.185 1.815.617.422 1.086.33 1.086.33l2.182-.03s1.14-.071.6-.966c-.044-.073-.314-.661-1.618-1.869-1.367-1.265-1.184-1.06.463-3.249.999-1.332 1.398-2.146 1.273-2.493-.12-.331-.855-.244-.855-.244l-2.455.015s-.182-.025-.317.055-.217.26-.217.26-.386 1.026-.9 1.898c-1.085 1.839-1.518 1.937-1.696 1.822-.412-.267-.309-1.075-.309-1.648 0-1.793.272-2.54-.529-2.733-.266-.064-.461-.107-1.141-.114-.872-.009-1.609.003-2.026.207-.278.135-.492.437-.362.454.161.021.527.099.721.363.25.341.241 1.107.241 1.107s.144 2.11-.335 2.372c-.328.18-.778-.187-1.745-1.86-.496-.857-.871-1.805-.871-1.805s-.072-.176-.202-.271-.376-.151-.376-.151l-2.332.015s-.35.01-.478.162c-.112.136-.018.462-.018.462s1.826 4.271 3.895 6.422c1.897 1.973 4.051 1.843 4.051 1.843h.977c.295 0 .297-.315.297-.315z"/></svg>
+            </div>
+            <div class="clink__info"><span>ВКонтакте</span><strong>vk.com/username</strong></div>
+            <div class="clink__arr">→</div>
+          </a>
+          <a href="tel:+79001234567" class="clink">
+            <div class="clink__ic clink__ic--phone">📞</div>
+            <div class="clink__info"><span>Телефон</span><strong>+7 900 123-45-67</strong></div>
+            <div class="clink__arr">→</div>
+          </a>
+          <a href="mailto:hello@sertik.ru" class="clink">
+            <div class="clink__ic clink__ic--mail">✉️</div>
+            <div class="clink__info"><span>Email</span><strong>hello@sertik.ru</strong></div>
+            <div class="clink__arr">→</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contacts__form reveal" data-d="100">
+        <div class="cform">
+          <div class="cform__title">Оставить заявку</div>
+          <div id="cformBody">
+            <div class="fg">
+              <label class="fl" for="cfName">Ваше имя</label>
+              <input type="text" id="cfName" class="fi" placeholder="Иван Иванов">
+            </div>
+            <div class="fg">
+              <label class="fl" for="cfPhone">Номер телефона</label>
+              <input type="tel" id="cfPhone" class="fi" placeholder="+7 900 000-00-00">
+            </div>
+            <div class="fg">
+              <label class="fl" for="cfContact">Где с вами связаться?</label>
+              <input type="text" id="cfContact" class="fi" placeholder="Telegram / ВКонтакте / WhatsApp...">
+            </div>
+            <div class="fchk">
+              <input type="checkbox" id="cfAgree" class="fchk__inp">
+              <label for="cfAgree" class="fchk__lbl">Принимаю <a href="#" class="il">пользовательское соглашение</a> и соглашаюсь с обработкой персональных данных</label>
+            </div>
+            <button class="btn btn--primary btn--full btn--xl" id="cfSubmit" onclick="submitForm(event)">
+              Отправить заявку
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            </button>
+          </div>
+          <div class="cform-done" id="cformDone">
+            <div class="cform-done__ic">🎉</div>
+            <h4>Заявка отправлена!</h4>
+            <p>Свяжемся с вами в течение рабочего дня</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__row">
+      <a href="#" class="logo">
+        <div class="logo__mark">С</div>
+        <span class="logo__text">Сертик<sup>*</sup></span>
+      </a>
+      <a href="#" class="footer__policy">Политика конфиденциальности</a>
+      <span class="footer__copy">© 2025 Сертик*</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
