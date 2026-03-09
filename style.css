@@ -302,7 +302,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   position: absolute;
   top: calc(var(--header-h) - 10px);
   right: 98px;
-  width: clamp(160px, 22vw, 320px);
+  width: clamp(170px, 23vw, 330px);
 }
 
 /* G character — bottom left */
@@ -310,7 +310,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   position: absolute;
   bottom: -165px;
   left: clamp(8px, 5vw, 80px);
-  width: clamp(160px, 22vw, 320px);
+  width: clamp(170px, 23vw, 330px);
 }
 
 /* Image stack */
@@ -1423,12 +1423,13 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   }
       .hchar--g {
         bottom: -73px;
-        width: 120px;
+        width: 130px;
     }
     
 
   .hchar--m{
-    width: 120px;
+    width: 130px;
+    top: calc(var(--header-h) - -15px);
   }
 
   /* ── iPhone screen tweaks ── */
