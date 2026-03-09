@@ -15,7 +15,6 @@
 <header class="header" id="header">
   <div class="header__inner container">
     <a href="#" class="logo">
-      <div class="logo__mark">С</div>
       <span class="logo__text">Сертик<sup>*</sup></span>
     </a>
     <nav class="nav" id="nav">
@@ -23,7 +22,6 @@
       <a href="#tester" class="nav__link">Как работает</a>
       <a href="#faq" class="nav__link">FAQ</a>
       <a href="#pricing" class="nav__link">Тарифы</a>
-      <a href="#contacts" class="btn btn--outline btn--sm">Связаться</a>
       <a href="#contacts" class="btn btn--primary btn--sm">Оставить заявку</a>
     </nav>
     <button class="burger" id="burger" aria-label="Меню">
@@ -137,7 +135,7 @@
         <div class="tester-tip" id="testerTip">
           <div class="tester-tip__card">
             <div class="tester-tip__dot"></div>
-            <span>Нажмите кнопку —<br>это интерактивно!</span>
+            <span>Нажмите<br>«Оплатить»</span>
           </div>
           <div class="tester-tip__arr"></div>
         </div>
@@ -202,8 +200,6 @@
 
       <!-- Arrow connector -->
       <div class="tester__connector" aria-hidden="true">
-        <div class="tc-pulse"></div>
-        <div class="tc-line"></div>
         <div class="tc-head">→</div>
       </div>
 
@@ -272,11 +268,11 @@
             </div>
             <div class="ademo__win-body">
               <div class="ademo__sidebar">
-                <div class="ademo__sb-item active">🎁 Сертификаты</div>
-                <div class="ademo__sb-item">📈 Аналитика</div>
-                <div class="ademo__sb-item">⚙️ Настройки</div>
+                <div class="ademo__sb-item active" data-tab="certs">🎁 Сертификаты</div>
+                <div class="ademo__sb-item" data-tab="analytics">📊 Статистика</div>
               </div>
-              <div class="ademo__main" id="ademoMain">
+              <!-- Сертификаты -->
+              <div class="ademo__main" id="tabCerts">
                 <div class="ademo__toolbar">
                   <div class="ademo__search"></div>
                   <button class="ademo__add" id="ademoAddBtn">+ Добавить</button>
@@ -285,6 +281,32 @@
                   <div class="ademo__row ademo__row--head"><span>Клиент</span><span>Сумма</span><span>Статус</span><span></span></div>
                   <div class="ademo__row"><span>Мария К.</span><span>5 000 ₽</span><span class="ast ast--paid">Оплачено</span><span class="ademo__close-btn">✕</span></div>
                   <div class="ademo__row"><span>Игорь П.</span><span>2 500 ₽</span><span class="ast ast--paid">Оплачено</span><span class="ademo__close-btn">✕</span></div>
+                </div>
+              </div>
+              <!-- Статистика -->
+              <div class="ademo__main ademo__main--hidden" id="tabAnalytics">
+                <div class="ada__section-title">Общая картина</div>
+                <div class="ada__stats">
+                  <div class="ada__stat ada__stat--green">
+                    <div class="ada__stat-label">Всего сертификатов</div>
+                    <div class="ada__stat-val">12</div>
+                    <div class="ada__stat-sub">за всё время</div>
+                  </div>
+                  <div class="ada__stat ada__stat--blue">
+                    <div class="ada__stat-label">Активные (оплачены)</div>
+                    <div class="ada__stat-val">10</div>
+                    <div class="ada__stat-sub">40 500 ₽</div>
+                  </div>
+                  <div class="ada__stat ada__stat--purple">
+                    <div class="ada__stat-label">Использованы</div>
+                    <div class="ada__stat-val">2</div>
+                    <div class="ada__stat-sub">13 000 ₽</div>
+                  </div>
+                  <div class="ada__stat ada__stat--orange">
+                    <div class="ada__stat-label">Ожидают оплаты</div>
+                    <div class="ada__stat-val">0</div>
+                    <div class="ada__stat-sub">незавершённые заказы</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -451,9 +473,9 @@
             <div class="clink__info"><span>Телефон</span><strong>+7 900 123-45-67</strong></div>
             <div class="clink__arr">→</div>
           </a>
-          <a href="mailto:hello@sertik.ru" class="clink">
+          <a href="/cdn-cgi/l/email-protection#375f525b5b5877445245435e5c194542" class="clink">
             <div class="clink__ic clink__ic--mail">✉️</div>
-            <div class="clink__info"><span>Email</span><strong>hello@sertik.ru</strong></div>
+            <div class="clink__info"><span>Email</span><strong><span class="__cf_email__" data-cfemail="e48c8188888ba4978196908d8fca9691">[email&#160;protected]</span></strong></div>
             <div class="clink__arr">→</div>
           </a>
         </div>
@@ -501,7 +523,6 @@
   <div class="container">
     <div class="footer__row">
       <a href="#" class="logo">
-        <div class="logo__mark">С</div>
         <span class="logo__text">Сертик<sup>*</sup></span>
       </a>
       <a href="#" class="footer__policy">Политика конфиденциальности</a>

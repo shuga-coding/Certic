@@ -148,8 +148,10 @@ document.querySelectorAll('.ademo__sb-item').forEach(item => {
     document.querySelectorAll('.ademo__sb-item').forEach(i => i.classList.remove('active'));
     item.classList.add('active');
     // Show/hide panels
-    document.getElementById('tabCerts').classList.toggle('ademo__main--hidden', tab !== 'certs');
-    document.getElementById('tabAnalytics').classList.toggle('ademo__main--hidden', tab !== 'analytics');
+    const tabCerts = document.getElementById('tabCerts');
+    const tabAnalytics = document.getElementById('tabAnalytics');
+    if (tabCerts) tabCerts.classList.toggle('ademo__main--hidden', tab !== 'certs');
+    if (tabAnalytics) tabAnalytics.classList.toggle('ademo__main--hidden', tab !== 'analytics');
   });
 });
 
