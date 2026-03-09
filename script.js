@@ -52,6 +52,12 @@ const resetBtn     = document.getElementById('resetBtn');
 const tdMac        = document.querySelector('.td--mac');
 const iosNotif     = document.getElementById('iosNotif');
 const testerTip    = document.getElementById('testerTip');
+const hsPhone    = document.getElementById('hsPhone');
+const hsMac      = document.getElementById('hsMac');
+const hsAdemo    = document.getElementById('hsAdemo');
+const hsAnalytics = document.getElementById('hsAnalytics');
+function hsGone(el) { if (el) el.classList.add('hotspot--gone'); }
+function hsBack(el) { if (el) el.classList.remove('hotspot--gone'); }
 
 let testerDone = false;
 
@@ -60,8 +66,9 @@ if (buyBtn) {
     if (testerDone) return;
     testerDone = true;
 
-    // Hide tooltip
+    // Hide tooltip + phone hotspot
     if (testerTip) testerTip.classList.add('hidden');
+    hsGone(hsPhone);
 
     buyBtn.disabled = true;
     buyBtn.textContent = 'Оформляем...';
@@ -92,6 +99,7 @@ if (buyBtn) {
       macNewRow.style.display = 'grid';
       macBadge.style.display = 'inline-flex';
       if (testerHint) testerHint.style.display = 'none';
+      hsGone(hsMac);
     }, 1200);
 
     // Step 3 — paid (2700ms)
@@ -130,6 +138,7 @@ if (resetBtn) {
 
     testerReset.style.display = 'none';
     if (testerHint) testerHint.style.display = '';
+    hsBack(hsPhone); hsBack(hsMac); hsBack(hsAdemo); hsBack(hsAnalytics);
     testerDone = false;
   });
 }
@@ -147,6 +156,7 @@ document.querySelectorAll('.ademo__sb-item').forEach(item => {
     // Update active sidebar item
     document.querySelectorAll('.ademo__sb-item').forEach(i => i.classList.remove('active'));
     item.classList.add('active');
+    if (tab === 'analytics') hsGone(hsAnalytics);
     // Show/hide panels
     const tabCerts = document.getElementById('tabCerts');
     const tabAnalytics = document.getElementById('tabAnalytics');
@@ -164,6 +174,7 @@ const demoEntries = [
 
 if (ademoAddBtn) {
   ademoAddBtn.addEventListener('click', () => {
+    hsGone(hsAdemo);
     const entry = demoEntries[demoStep % demoEntries.length];
     demoStep++;
 
@@ -280,4 +291,71 @@ const secObs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 
-sections.forEach(s => secObs.observe(s));
+
+/* ═══════════════════════════════════════
+   HERO CHARACTERS ANIMATION
+═══════════════════════════════════════ */
+(function() {
+  const charM = document.getElementById('hcharM');
+  const charG = document.getElementById('hcharG');
+  if (!charM || !charG) return;
+
+  // ── 1. ENTRANCE: персонажи вплывают сразу после загрузки ──
+  setTimeout(() => {
+    charM.classList.add('visible');
+    charG.classList.add('visible');
+  }, 200);
+
+  // ── 2. SWAP: m1→m2 через 800ms, g1→g2 через +300ms ──
+  setTimeout(() => {
+    charM.classList.add('hchar--swapped');
+    setTimeout(() => {
+      charG.classList.add('hchar--swapped');
+    }, 700);
+  }, 900);
+
+  // ── 3. После entrance — отключаем CSS transition, включаем JS-параллакс ──
+  // Задержка чуть больше длительности entrance transition (0.6s + delay ~0.35s + буфер)
+  setTimeout(() => {
+    charM.style.transition = 'opacity 0.1s ease';
+    charG.style.transition = 'opacity 0.1s ease';
+    updateParallax();
+  }, 1100);
+
+  // ── 4. ПАРАЛЛАКС НА СКРОЛЛЕ ──
+  const hero = document.getElementById('hero');
+  let entranceDone = false;
+
+  function updateParallax() {
+    if (!hero) return;
+    const heroRect = hero.getBoundingClientRect();
+    const heroH    = hero.offsetHeight;
+
+    // Сколько пикселей hero ушло за верх viewport
+    const scrolled = Math.max(0, -heroRect.top);
+    // Нормализуем: 0 = вверху, 1 = hero почти скрылся
+    const progress = Math.min(1, scrolled / (heroH * 0.65));
+
+    // Максимальный сдвиг ~140px (за края экрана)
+    const maxShift = 140;
+    const shift    = progress * maxShift;
+
+    // M уезжает вправо, G — влево
+    charM.style.transform = `translateX(${shift}px)`;
+    charG.style.transform = `translateX(${-shift}px)`;
+
+    // Плавное исчезновение параллельно со сдвигом
+    const opacity = Math.max(0, 1 - progress * 1.5);
+    charM.style.opacity = opacity;
+    charG.style.opacity = opacity;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (entranceDone) updateParallax();
+  }, { passive: true });
+
+  // Включаем параллакс после entrance
+  setTimeout(() => { entranceDone = true; }, 1100);
+
+})();
+

@@ -45,6 +45,21 @@
     <div class="hd-dots"></div>
   </div>
 
+  <!-- CHARACTERS -->
+  <div class="hero__chars" aria-hidden="true">
+    <!-- M character: top-right -->
+    <div class="hchar hchar--m" id="hcharM">
+      <img class="hchar__img hchar__img--1" src="m1.svg" alt="" id="hcharM1">
+      <img class="hchar__img hchar__img--2" src="m2.svg" alt="" id="hcharM2">
+    </div>
+    <!-- G character: bottom-left -->
+    <div class="hchar hchar--g" id="hcharG">
+      <img class="hchar__img hchar__img--1" src="g1.svg" alt="" id="hcharG1">
+      <img class="hchar__img hchar__img--2" src="g2.svg" alt="" id="hcharG2">
+    </div>
+
+  </div>
+
   <div class="hero__content container">
     <h1 class="hero__h1">Сертик<sup>*</sup></h1>
     <p class="hero__note">
@@ -131,15 +146,6 @@
            ══════════════════════════════════════ -->
       <div class="td td--iphone reveal">
 
-        <!-- Tooltip bubble to the LEFT of the phone -->
-        <div class="tester-tip" id="testerTip">
-          <div class="tester-tip__card">
-            <div class="tester-tip__dot"></div>
-            <span>Нажмите<br>«Оплатить»</span>
-          </div>
-          <div class="tester-tip__arr"></div>
-        </div>
-
         <div class="td__label">Покупатель</div>
 
         <!-- iPhone mockup: image + screen overlay -->
@@ -166,7 +172,8 @@
                 <div class="iph-cert-icon">🎁</div>
                 <div class="iph-cert-label">Подарочный сертификат</div>
               </div>
-              <div class="iph-form">
+              <div class="iph-form" style="position:relative">
+                <div class="hotspot" id="hsPhone"></div>
                 <div class="iph-field">
                   <div class="iph-flabel">Получатель</div>
                   <div class="iph-finput">Анна Смирнова</div>
@@ -222,7 +229,7 @@
                 <div class="mac-sb-link">Клиенты</div>
                 <div class="mac-sb-link">Настройки</div>
               </div>
-              <div class="mac-body">
+              <div class="mac-body" style="position:relative">
                 <div class="mac-body-head">
                   <span>Сертификаты</span>
                   <div class="mac-new-badge" id="macBadge">Новый!</div>
@@ -246,7 +253,7 @@
 
     </div><!-- /tester__devices -->
 
-    <div class="tester__hint" id="testerHint">👆 Нажмите «Оформить сертификат» на экране айфона</div>
+    <div class="tester__hint" id="testerHint" style="display:none"></div>
     <div class="tester__reset" id="testerReset">
       <button class="btn btn--outline" id="resetBtn">↺ Попробовать снова</button>
     </div>
@@ -269,13 +276,21 @@
             <div class="ademo__win-body">
               <div class="ademo__sidebar">
                 <div class="ademo__sb-item active" data-tab="certs">🎁 Сертификаты</div>
-                <div class="ademo__sb-item" data-tab="analytics">📊 Статистика</div>
+
+                <div class="ademo__sb-item" data-tab="analytics" style="position:relative">
+                  <div class="hotspot hotspot--tab" id="hsAnalytics"></div>
+                  📊 Статистика
+                </div>
+                
               </div>
               <!-- Сертификаты -->
               <div class="ademo__main" id="tabCerts">
                 <div class="ademo__toolbar">
                   <div class="ademo__search"></div>
-                  <button class="ademo__add" id="ademoAddBtn">+ Добавить</button>
+                  <div style="position:relative;display:inline-block">
+                    <div class="hotspot hotspot--ademo" id="hsAdemo"></div>
+                    <button class="ademo__add" id="ademoAddBtn">+ Добавить</button>
+                  </div>
                 </div>
                 <div class="ademo__list" id="ademoList">
                   <div class="ademo__row ademo__row--head"><span>Клиент</span><span>Сумма</span><span>Статус</span><span></span></div>

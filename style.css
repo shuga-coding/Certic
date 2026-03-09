@@ -288,6 +288,91 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   flex-wrap: wrap;
 }
 
+/* ── HERO CHARACTERS ────────────────────────── */
+.hero__chars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+/* M character — top right */
+.hchar--m {
+  position: absolute;
+  top: calc(var(--header-h) - 10px);
+  right: 98px;
+  width: clamp(160px, 22vw, 320px);
+}
+
+/* G character — bottom left */
+.hchar--g {
+  position: absolute;
+  bottom: -165px;
+  left: clamp(8px, 5vw, 80px);
+  width: clamp(160px, 22vw, 320px);
+}
+
+/* Image stack */
+.hchar {
+  position: absolute;
+  aspect-ratio: 1 / 1.5;
+}
+
+.hchar__img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.45s ease;
+}
+
+.hchar__img--1 { opacity: 1; }
+.hchar__img--2 { opacity: 0; }
+
+/* When swapped */
+.hchar--swapped .hchar__img--1 { opacity: 0; }
+.hchar--swapped .hchar__img--2 { opacity: 1; }
+
+/* Entrance animations */
+.hchar--m {
+  opacity: 0;
+  transform: translate(40px, -20px);
+  transition: opacity 0.6s ease 0.2s, transform 0.6s cubic-bezier(0.34, 1.4, 0.64, 1) 0.2s;
+}
+.hchar--g {
+  opacity: 0;
+  transform: translate(-30px, 30px);
+  transition: opacity 0.6s ease 0.35s, transform 0.6s cubic-bezier(0.34, 1.4, 0.64, 1) 0.35s;
+}
+.hchar--m.visible,
+.hchar--g.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Parallax scroll — JS управляет transform и opacity напрямую */
+/* После visible убираем transition чтобы JS-скролл был плавным через rAF */
+.hchar--m.visible,
+.hchar--g.visible {
+  /* transition только для entrance, потом JS рулит */
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .hchar--m {
+    top: calc(var(--header-h) + 8px);
+    right: -4px;
+    width: clamp(100px, 28vw, 160px);
+  }
+  .hchar--g {
+    bottom: 0;
+    left: 0;
+    width: clamp(90px, 24vw, 140px);
+  }
+}
+
 /* ── BENEFITS ──────────────────────────────── */
 .benefits {
   padding: 33px 0;
@@ -417,57 +502,6 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* — Tooltip bubble: sits to the LEFT of the iPhone column —
    Position: absolute inside td--iphone, right side points at phone  */
-.tester-tip {
-  position: absolute;
-  right: calc(100% + 20px);
-  top: 50%;
-  transform: translateY(-20%);
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  animation: tipBob 3s ease-in-out infinite;
-  z-index: 10;
-  white-space: nowrap;
-}
-.tester-tip__card {
-  background: var(--ink);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.5;
-  padding: 12px 16px;
-  border-radius: 14px;
-  box-shadow: 0 12px 32px rgba(15,17,32,.22);
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-.tester-tip__dot {
-  width: 9px; height: 9px;
-  background: #4ade80;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 3px;
-  animation: ping 1.8s ease-in-out infinite;
-}
-/* Arrow pointing RIGHT toward phone */
-.tester-tip__arr {
-  width: 0; height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 11px solid var(--ink);
-  flex-shrink: 0;
-}
-.tester-tip.hidden {
-  opacity: 0;
-  transition: opacity .3s;
-  pointer-events: none;
-}
-@keyframes tipBob {
-  0%,100% { transform: translateY(-20%) translateX(0); }
-  50%     { transform: translateY(-20%) translateX(-6px); }
-}
-
 /* — iOS notification: pops above the phone — */
 /* — iOS notification inside phone-screen — */
 .ios-notif {
@@ -789,6 +823,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .mac-tbl-row:not(.mac-tbl-row--new) {
   display: grid;
 }
+
 .mac-tbl-row--new { display: none; } /* shown by JS */
 .mst {
   display: inline-flex;
@@ -1259,6 +1294,56 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .footer__policy:hover { color: var(--accent); }
 .footer__copy { font-size: 14px; color: var(--ink3); }
 
+/* ── Hotspot pulse markers ────────────── */
+.hotspot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  z-index: 40;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.hotspot::before,
+.hotspot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+.hotspot::before {
+  background: #4ade80;
+  transform: scale(0.65);
+  box-shadow: 0 0 0 1.5px rgba(74,222,128,.5);
+}
+.hotspot::after {
+  background: transparent;
+  border: 2px solid rgba(74,222,128,.7);
+  animation: hsPing 1.8s ease-out infinite;
+}
+@keyframes hsPing {
+  0%   { transform: scale(0.65); opacity: 1; }
+  100% { transform: scale(2.4);  opacity: 0; }
+}
+.hotspot--gone {
+  opacity: 0;
+}
+/* Phone: bottom-right of iph-btn */
+#hsPhone {
+  bottom: 43px;
+  right: 10px;
+}
+/* Ademo: top-right of button wrapper */
+.hotspot--ademo {
+  top: -5px;
+  right: -5px;
+}
+/* Tab hotspot — top-right corner of sidebar item */
+.hotspot--tab {
+  top: -2px;
+  right: 6px;
+}
+
+
 /* ── SCROLL REVEAL ───────────────────────── */
 .reveal {
   opacity: 0;
@@ -1280,7 +1365,6 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .bcard--lg { grid-column: span 2; }
   .tester__devices { gap: 24px; }
   .mac-wrap { width: 460px; }
-  .tester-tip { right: calc(100% + 10px); }
 }
 
 @media (max-width: 860px) {
@@ -1322,6 +1406,14 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .ademo__layout { grid-template-columns: 1fr; }
   .contacts__cols { grid-template-columns: 1fr; }
   .plans { grid-template-columns: 1fr; max-width: 480px; }
+
+  .hchar--m {
+        top: calc(var(--header-h) - -29px);
+}
+.hchar--g{
+      bottom: -123px;
+
+}
 }
 
 @media (max-width: 600px) {
@@ -1329,6 +1421,16 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .hero__note{
     font-size: 13px;
   }
+      .hchar--g {
+        bottom: -73px;
+        width: 120px;
+    }
+    
+
+  .hchar--m{
+    width: 120px;
+  }
+
   /* ── iPhone screen tweaks ── */
   .phone-wrap { width: 180px; }
   .iph-cert-preview { padding: 0; }
@@ -1389,4 +1491,5 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
   .cform { padding: 24px; }
   .footer__row { flex-direction: column; align-items: center; text-align: center; }
+
 }
