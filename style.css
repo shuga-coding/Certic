@@ -359,19 +359,6 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   /* transition только для entrance, потом JS рулит */
 }
 
-/* Mobile adjustments */
-@media (max-width: 640px) {
-  .hchar--m {
-    top: calc(var(--header-h) + 8px);
-    right: -4px;
-    width: clamp(100px, 28vw, 160px);
-  }
-  .hchar--g {
-    bottom: 0;
-    left: 0;
-    width: clamp(90px, 24vw, 140px);
-  }
-}
 
 /* ── BENEFITS ──────────────────────────────── */
 .benefits {
@@ -1422,14 +1409,16 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     font-size: 13px;
   }
       .hchar--g {
-        bottom: -73px;
-        width: 130px;
+        bottom: -97px;
+        width: 160px;
+        left: -53px;
     }
     
 
   .hchar--m{
-    width: 130px;
+    width: 160px;
     top: calc(var(--header-h) - -15px);
+    right: -61px;
   }
 
   /* ── iPhone screen tweaks ── */
