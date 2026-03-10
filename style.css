@@ -1409,16 +1409,16 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     font-size: 13px;
   }
       .hchar--g {
-        bottom: -123px;
+        bottom: -135px;
         width: 13em;
         left: -69px;
     }
     
 
   .hchar--m{
-    width: 12.2em;
+    width: 12em;
     top: calc(var(--header-h) - -15px);
-    right: -61px;
+    right: -74px;
   }
 
   /* ── iPhone screen tweaks ── */
