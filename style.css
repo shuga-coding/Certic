@@ -218,7 +218,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* ── HERO ──────────────────────────────────── */
 .hero {
-  position: relative;
+  position: sticky;
+  top: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -226,6 +227,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   padding-bottom: 80px;
   background: linear-gradient(160deg, #f0f2ff 0%, #faf8ff 50%, #f0f9ff 100%);
   overflow: hidden;
+  z-index: 1;
 }
 
 .hero__decor { position: absolute; inset: 0; pointer-events: none; }
@@ -308,7 +310,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 /* G character — bottom left */
 .hchar--g {
   position: absolute;
-  bottom: -165px;
+  bottom: -190px;
   left: clamp(8px, 5vw, 80px);
   width: clamp(170px, 23vw, 330px);
 }
@@ -362,8 +364,11 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* ── BENEFITS ──────────────────────────────── */
 .benefits {
+  position: relative;
+  z-index: 2;
   padding: 33px 0;
   background: var(--white);
+  box-shadow: 0 -8px 40px rgba(15,17,32,0.10);
 }
 
 .bento {
@@ -483,6 +488,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .tester {
   padding: 33px 0 0;
   background: var(--bg);
+  position: relative;
+   z-index: 2;
 }
 
 /* — Stage: phone left, arrow center, mac right — */
@@ -1050,8 +1057,10 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* ── FAQ ──────────────────────────────────── */
 .faq {
-  padding: 33px 0;
+  padding: 70px 0;
   background: var(--white);
+  position: relative;
+  z-index: 2;
 }
 .faq__list {
   max-width: 760px;
@@ -1110,14 +1119,16 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* ── PRICING ──────────────────────────────── */
 .pricing {
-  padding: 33px 0;
+  padding: 70px 0;
   background: var(--bg);
+  position: relative;
+  z-index: 2;
 }
 .plans {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
-  max-width: 840px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 .plan {
@@ -1210,6 +1221,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .contacts {
   padding: 33px 0;
   background: var(--white);
+  position: relative;
+  z-index: 2;
 }
 .contacts__cols {
   display: grid;
@@ -1296,6 +1309,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   background: var(--bg);
   border-top: 1px solid var(--border);
   padding: 28px 0;
+  position: relative;
+  z-index: 2;
 }
 .footer__row {
   display: flex;
@@ -1456,7 +1471,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
   .hchar--m{
     width: 12em;
-    top: calc(var(--header-h) - -44px);
+    top: calc(var(--header-h) - -20px);
     right: -74px;
   }
 

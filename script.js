@@ -344,22 +344,25 @@ const secObs = new IntersectionObserver((entries) => {
   heroObs.observe(hero);
 
   // ── Параллакс на скролле ──
+  // При sticky hero следующий блок наезжает снизу.
+  // Считаем прогресс по тому, насколько benefits перекрыл hero.
+  const benefits = document.querySelector('.benefits');
+
   function updateParallax() {
-    const heroRect = hero.getBoundingClientRect();
-    const heroH    = hero.offsetHeight;
+    if (!benefits) return;
+    const benefitsRect = benefits.getBoundingClientRect();
+    const heroH = hero.offsetHeight;
 
-    const scrolled = Math.max(0, -heroRect.top);
-    const progress = Math.min(1, scrolled / (heroH * 0.65));
+    // Сколько пикселей benefits уже зашло на hero сверху
+    // benefitsRect.top < heroH означает что блок начал наезжать
+    const overlap = Math.max(0, heroH - benefitsRect.top);
+    const progress = Math.min(1, overlap / (heroH * 0.7));
 
-    const maxShift = 140;
-    const shift    = progress * maxShift;
+    const maxShift = 160;
+    const shift = progress * maxShift;
 
     charM.style.transform = `translateX(${shift}px)`;
     charG.style.transform = `translateX(${-shift}px)`;
-
-    const opacity = Math.max(0, 1 - progress * 1.5);
-    charM.style.opacity = opacity;
-    charG.style.opacity = opacity;
   }
 
   // Отключаем CSS transition после entrance, чтобы параллакс был плавным
