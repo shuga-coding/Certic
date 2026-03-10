@@ -1390,6 +1390,9 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     grid-column: span 1;
     flex-direction: column;
   }
+  .chart-bars{
+    height: 90px;
+  }
   .bcard--lg .bcard__visual {
     width: 100%;
     height: 70px;
