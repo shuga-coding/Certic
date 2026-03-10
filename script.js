@@ -298,64 +298,76 @@ const secObs = new IntersectionObserver((entries) => {
 (function() {
   const charM = document.getElementById('hcharM');
   const charG = document.getElementById('hcharG');
-  if (!charM || !charG) return;
+  const hero  = document.getElementById('hero');
+  if (!charM || !charG || !hero) return;
 
-  // ── 1. ENTRANCE: персонажи вплывают сразу после загрузки ──
+  let swapTimer1 = null;
+  let swapTimer2 = null;
+  let entranceDone = false;
+
+  // ── Запуск анимации смены кадров ──
+  function runSwap() {
+    clearTimeout(swapTimer1);
+    clearTimeout(swapTimer2);
+
+    // Сбрасываем к первым кадрам
+    charM.classList.remove('hchar--swapped');
+    charG.classList.remove('hchar--swapped');
+
+    // m1 → m2
+    swapTimer1 = setTimeout(() => {
+      charM.classList.add('hchar--swapped');
+      // g1 → g2 через 300ms после m
+      swapTimer2 = setTimeout(() => {
+        charG.classList.add('hchar--swapped');
+      }, 300);
+    }, 900);
+  }
+
+  // ── Entrance: вплываем один раз при первой загрузке ──
   setTimeout(() => {
     charM.classList.add('visible');
     charG.classList.add('visible');
+    entranceDone = true;
   }, 200);
 
-  // ── 2. SWAP: m1→m2 через 800ms, g1→g2 через +300ms ──
-  setTimeout(() => {
-    charM.classList.add('hchar--swapped');
-    setTimeout(() => {
-      charG.classList.add('hchar--swapped');
-    }, 700);
-  }, 900);
+  // ── IntersectionObserver: следим за hero ──
+  // Запускаем swap каждый раз, когда hero появляется в viewport
+  const heroObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        runSwap();
+      }
+    });
+  }, { threshold: 0.2 });
 
-  // ── 3. После entrance — отключаем CSS transition, включаем JS-параллакс ──
-  // Задержка чуть больше длительности entrance transition (0.6s + delay ~0.35s + буфер)
-  setTimeout(() => {
-    charM.style.transition = 'opacity 0.1s ease';
-    charG.style.transition = 'opacity 0.1s ease';
-    updateParallax();
-  }, 1100);
+  heroObs.observe(hero);
 
-  // ── 4. ПАРАЛЛАКС НА СКРОЛЛЕ ──
-  const hero = document.getElementById('hero');
-  let entranceDone = false;
-
+  // ── Параллакс на скролле ──
   function updateParallax() {
-    if (!hero) return;
     const heroRect = hero.getBoundingClientRect();
     const heroH    = hero.offsetHeight;
 
-    // Сколько пикселей hero ушло за верх viewport
     const scrolled = Math.max(0, -heroRect.top);
-    // Нормализуем: 0 = вверху, 1 = hero почти скрылся
     const progress = Math.min(1, scrolled / (heroH * 0.65));
 
-    // Максимальный сдвиг ~140px (за края экрана)
     const maxShift = 140;
     const shift    = progress * maxShift;
 
-    // M уезжает вправо, G — влево
     charM.style.transform = `translateX(${shift}px)`;
     charG.style.transform = `translateX(${-shift}px)`;
 
-    // Плавное исчезновение параллельно со сдвигом
     const opacity = Math.max(0, 1 - progress * 1.5);
     charM.style.opacity = opacity;
     charG.style.opacity = opacity;
   }
 
-  window.addEventListener('scroll', () => {
-    if (entranceDone) updateParallax();
-  }, { passive: true });
+  // Отключаем CSS transition после entrance, чтобы параллакс был плавным
+  setTimeout(() => {
+    charM.style.transition = 'opacity 0.1s ease';
+    charG.style.transition = 'opacity 0.1s ease';
+  }, 1100);
 
-  // Включаем параллакс после entrance
-  setTimeout(() => { entranceDone = true; }, 1100);
+  window.addEventListener('scroll', updateParallax, { passive: true });
 
 })();
-
