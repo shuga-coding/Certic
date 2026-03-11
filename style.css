@@ -525,7 +525,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .hchar--m {
   position: absolute;
   top: calc(var(--header-h) - 10px);
-  right: 230px;
+  right: 184px;
   width: clamp(170px, 23vw, 330px);
 }
 
@@ -1353,6 +1353,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   max-width: 1120px;
   margin: 0 auto;
 }
+
 .plan {
   background: var(--white);
   border: 2px solid var(--border);
@@ -1708,7 +1709,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
   .hchar--m{
     width: 12em;
-    top: calc(var(--header-h) - -20px);
+    top: calc(var(--header-h) - -25px);
     right: -74px;
   }
 
