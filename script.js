@@ -123,10 +123,10 @@ if (buyBtn) {
 
 if (resetBtn) {
   resetBtn.addEventListener('click', () => {
-    iphForm.style.display = 'block';
+    iphForm.style.display = 'flex';
     iphSuccess.style.display = 'none';
     buyBtn.disabled = false;
-    buyBtn.textContent = 'Оформить сертификат';
+    buyBtn.textContent = 'Оплатить';
     if (testerTip) testerTip.classList.remove('hidden');
 
     macNewRow.style.display = 'none';
