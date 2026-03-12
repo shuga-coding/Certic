@@ -808,11 +808,11 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .phone-screen {
   position: absolute;
   left:   5.227%;
-  top:    1.823%;
-  width:  89.864%;
-  height: 95.725%;
+  top:    2.56%;
+  width:  88.864%;
+  height: 94.9%;
   overflow: hidden;
-  border-radius: 22px;
+  border-radius: 26px;
   background: #fff;
   z-index: 2;
   display: flex;
@@ -1672,7 +1672,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
   .phone-wrap { width: 200px; }
   .td--mac { width: 100%; }
-  .mac-wrap { width: 100%; aspect-ratio: 1301 / 854; }
+  .mac-wrap { width: 113%; aspect-ratio: 1301 / 854; }
   .mac-sb-link { font-size: 9px; padding: 5px 8px; }
   .mac-sb-logo { font-size: 16px; }
   .mac-tbl-head span,
@@ -1714,7 +1714,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   }
 
   /* ── iPhone screen tweaks ── */
-  .phone-wrap { width: 180px; }
+  .phone-wrap { width: 240px; }
   .iph-cert-preview { padding: 0; }
   .iph-s-cert-sum { font-size: 25px; }
 
