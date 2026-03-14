@@ -43,7 +43,6 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 const chartObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
-    // небольшая задержка — дать карточке появиться (reveal) раньше баров
     setTimeout(() => e.target.classList.add('animated'), 200);
     chartObs.unobserve(e.target);
   });
