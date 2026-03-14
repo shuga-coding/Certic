@@ -38,6 +38,20 @@ const revealObs = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 /* ═══════════════════════════════════════
+   CHART BARS ANIMATION
+═══════════════════════════════════════ */
+const chartObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    // небольшая задержка — дать карточке появиться (reveal) раньше баров
+    setTimeout(() => e.target.classList.add('animated'), 200);
+    chartObs.unobserve(e.target);
+  });
+}, { threshold: 0.4 });
+
+document.querySelectorAll('.chart-bars').forEach(el => chartObs.observe(el));
+
+/* ═══════════════════════════════════════
    INTERACTIVE TESTER
 ═══════════════════════════════════════ */
 const buyBtn       = document.getElementById('buyBtn');
