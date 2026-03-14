@@ -541,7 +541,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .hchar--m {
   position: absolute;
   top: calc(var(--header-h) - 10px);
-  right: 168px;
+  right: 120px;
   width: clamp(170px, 23vw, 330px);
 }
 
@@ -1640,7 +1640,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .mac-wrap { width: 460px; }
     .hchar--m {
         top: calc(var(--header-h) - -81px);
-        right: -9px;
+        right: -42px;
         width: 16em;
 }
 .hchar--g{
@@ -1720,18 +1720,23 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .hero__note{
     font-size: 16px;
   }
-      .hchar--g {
-        bottom: -135px;
-        width: 13.5em;
+  
+   .hchar--m {
+    top: unset;
+    bottom: -173px;
+    right: -76px;
+    width: 17em;
+  }
+  .hero{
+    padding-top: var(--header-h);
+    padding-bottom: 30%;
+  }
+  .hchar--g {
+        width: 16em;
+        bottom: -173px;
         left: -69px;
     }
-    
 
-  .hchar--m{
-    width: 11em;
-    top: calc(var(--header-h) - -2px);
-    right: -74px;
-  }
 
   /* ── iPhone screen tweaks ── */
   .phone-wrap { width: 240px; }
@@ -1794,20 +1799,4 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .cform { padding: 24px; }
   .footer__row { flex-direction: column; align-items: center; text-align: center; }
 
-}
-@media (max-width: 450px){
-  .hchar--m {
-    top: unset;
-    bottom: -173px;
-    right: -69px;
-    width: 17em;
-  }
-  .hero{
-    padding-top: var(--header-h);
-    padding-bottom: 30%;
-  }
-  .hchar--g {
-        width: 16em;
-        bottom: -173px;
-    }
 }
