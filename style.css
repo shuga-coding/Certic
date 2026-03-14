@@ -691,7 +691,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .bcard--accent .bcard__tag { color: white; }
 .bcard:hover .bcard__tag { transform: scale(1.1) rotate(5deg); }
 .bcard h3 {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 800;
   color: var(--ink);
   margin-bottom: 10px;
@@ -699,7 +699,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 
-.bcard p { font-size: 14px; color: var(--ink2); line-height: 1.65; }
+.bcard p { font-size: 15px; color: var(--ink2); line-height: 1.65; }
 .bcard.bcard--accent h3,
 .bcard.bcard--accent p { color: #ffffff !important; }
 
@@ -728,7 +728,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* — Section wrapper — */
 .tester {
-  padding: 33px 0 0;
+  padding: 50px 0 0;
   background: var(--bg);
   position: relative;
    z-index: 2;
@@ -829,7 +829,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   position: absolute;
   left:   5.227%;
   top:    2.56%;
-  width:  88.864%;
+  width:  89%;
   height: 94.9%;
   overflow: hidden;
   border-radius: 26px;
@@ -863,10 +863,10 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   position: absolute;
   left:   9.147%;
   top:    1.991%;
-  width:  81.783%;
-  height: 76.464%;
+  width:  81.793%;
+  height: 78.464%;
   overflow: hidden;
-  border-radius: 3px;
+  border-radius: 6px;
   background: #fff;
   z-index: 2;
   display: flex;
@@ -1108,7 +1108,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 /* Admin Demo */
 .ademo {
   background: var(--white);
-  padding: 33px 0 66px;
+  padding: 50px 0 66px;
   margin-top: 80px;
   border-top: 1px solid var(--border);
 }
@@ -1668,7 +1668,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
         width: 16em;
 }
 .hchar--g{
-      bottom: -140px;
+      bottom: -157px;
       width: 17em;
       left: -17px;
 }
