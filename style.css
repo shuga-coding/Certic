@@ -345,7 +345,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   height: clamp(63px, 13vw, 100px);
   width: auto;
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 0px;
 }
 /* Футер — чуть меньше хедера */
 .logo__img--footer {
@@ -482,12 +482,13 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .hd-dots {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(79,70,229,0.12) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(79,70,229,0.18) 1.5px, transparent 1.5px);
   background-size: 28px 28px;
-  mask-image: radial-gradient(ellipse 60% 60% at 80% 20%, black 0%, transparent 100%);
+  mask-image: radial-gradient(ellipse 60% 60% at 80% 20%, black 0%, transparent 195%);
 }
 
 .hero__content { 
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   display: flex;
@@ -495,15 +496,14 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   z-index: 2; 
   max-width: 680px; 
   }
+  .hero__content-main{
+    display: flex;
+    justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  }
 
-.hero__h1 {
-  font-size: clamp(69px, 12vw, 120px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-  color: var(--ink);
-  margin-bottom: 0;
-}
+
 .hero__h1 sup {
   color: var(--accent);
   font-size: 0.35em;
@@ -512,16 +512,13 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 .hero__note {
-  font-size: 0.95em;
+  font-size: 1.2em;
   color: var(--ink2);
   line-height: 1.65;
   max-width: 500px;
-  padding: 16px 22px;
-  background: var(--white);
-  border-left: 4px solid var(--accent);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 10px 22px;
   margin-bottom: 40px;
-  box-shadow: 0 2px 12px rgba(15,17,32,0.05);
+  text-align: center;
 }
 .hero__note em { color: var(--accent); font-style: normal; font-weight: 900; }
 
@@ -845,7 +842,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 ══════════════════════════════════════ */
 .mac-wrap {
   position: relative;
-  width: 580px;
+  width: 656px;
   aspect-ratio: 1301 / 854;
   flex-shrink: 0;
 }
@@ -978,7 +975,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   background: linear-gradient(to bottom, var(--accent), rgba(79,70,229,.15));
   border-radius: 2px;
 }
-.tc-head { font-size: 20px; font-weight: 900; color: var(--accent); line-height: 1; }
+.tc-head { font-size: 35px; font-weight: 900; color: var(--accent); line-height: 1; margin-left: 20px; }
 
 /* — Hint & reset — */
 .tester__hint {
@@ -1689,9 +1686,9 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     order: -1;
   }
 
-  .phone-wrap { width: 200px; }
+  .phone-wrap { width: 285px; }
   .td--mac { width: 100%; }
-  .mac-wrap { width: 113%; aspect-ratio: 1301 / 854; }
+  .mac-wrap { width: 105%; aspect-ratio: 1301 / 854; }
   .mac-sb-link { font-size: 9px; padding: 5px 8px; }
   .mac-sb-logo { font-size: 16px; }
   .mac-tbl-head span,
@@ -1721,7 +1718,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   }
   .hero__btns .btn { width: 100%; justify-content: center; }
   .hero__note{
-    font-size: 13px;
+    font-size: 16px;
   }
       .hchar--g {
         bottom: -135px;
@@ -1797,4 +1794,20 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .cform { padding: 24px; }
   .footer__row { flex-direction: column; align-items: center; text-align: center; }
 
+}
+@media (max-width: 450px){
+  .hchar--m {
+    top: unset;
+    bottom: -173px;
+    right: -69px;
+    width: 17em;
+  }
+  .hero{
+    padding-top: var(--header-h);
+    padding-bottom: 30%;
+  }
+  .hchar--g {
+        width: 16em;
+        bottom: -173px;
+    }
 }
