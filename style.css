@@ -302,6 +302,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   padding: 14px 28px;
   font-size: 15px;
   border: 2px solid rgba(255,255,255,0.3);
+  box-shadow: 0 4px 24px rgba(15,17,32,0.08);
 }
 .btn--ghost:hover { background: rgba(255,255,255,0.25); }
 
@@ -526,6 +527,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  
 }
 
 /* ── HERO CHARACTERS ────────────────────────── */
