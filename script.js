@@ -298,6 +298,8 @@ const secObs = new IntersectionObserver((entries) => {
 (function() {
   const charM = document.getElementById('hcharM');
   const charG = document.getElementById('hcharG');
+  const charK1 = document.getElementById('hcharK1');
+  const charK2 = document.getElementById('hcharK2');
   const hero  = document.getElementById('hero');
   if (!charM || !charG || !hero) return;
 
@@ -310,42 +312,37 @@ const secObs = new IntersectionObserver((entries) => {
     clearTimeout(swapTimer1);
     clearTimeout(swapTimer2);
 
-    // Сбрасываем к первым кадрам
     charM.classList.remove('hchar--swapped');
     charG.classList.remove('hchar--swapped');
 
-    // m1 → m2
     swapTimer1 = setTimeout(() => {
       charM.classList.add('hchar--swapped');
-      // g1 → g2 через 300ms после m
       swapTimer2 = setTimeout(() => {
         charG.classList.add('hchar--swapped');
       }, 300);
     }, 900);
   }
 
-  // ── Entrance: вплываем один раз при первой загрузке ──
+  // ── Entrance: m/g + k1/k2 вплываем сразу после загрузки ──
   setTimeout(() => {
     charM.classList.add('visible');
     charG.classList.add('visible');
+    if (charK1) charK1.classList.add('visible');
+    if (charK2) charK2.classList.add('visible');
     entranceDone = true;
   }, 200);
 
   // ── IntersectionObserver: следим за hero ──
-  // Запускаем swap каждый раз, когда hero появляется в viewport
   const heroObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        runSwap();
-      }
+      if (e.isIntersecting) runSwap();
     });
   }, { threshold: 0.2 });
 
   heroObs.observe(hero);
 
   // ── Параллакс на скролле ──
-  // При sticky hero следующий блок наезжает снизу.
-  // Считаем прогресс по тому, насколько benefits перекрыл hero.
+  // k2 (top-left) уезжает влево, k1 (bottom-right) уезжает вправо
   const benefits = document.querySelector('.benefits');
 
   function updateParallax() {
@@ -353,22 +350,26 @@ const secObs = new IntersectionObserver((entries) => {
     const benefitsRect = benefits.getBoundingClientRect();
     const heroH = hero.offsetHeight;
 
-    // Сколько пикселей benefits уже зашло на hero сверху
-    // benefitsRect.top < heroH означает что блок начал наезжать
     const overlap = Math.max(0, heroH - benefitsRect.top);
     const progress = Math.min(1, overlap / (heroH * 0.7));
 
     const maxShift = 160;
     const shift = progress * maxShift;
 
+    // m уезжает вправо, g — влево (как было)
     charM.style.transform = `translateX(${shift}px)`;
     charG.style.transform = `translateX(${-shift}px)`;
+
+    // k2 (top-left) — влево, k1 (bottom-right) — вправо
+    if (charK2) charK2.style.transform = `translateX(${-shift}px)`;
+    if (charK1) charK1.style.transform = `translateX(${shift}px)`;
   }
 
-  // Отключаем CSS transition после entrance, чтобы параллакс был плавным
   setTimeout(() => {
     charM.style.transition = 'opacity 0.1s ease';
     charG.style.transition = 'opacity 0.1s ease';
+    if (charK1) charK1.style.transition = 'none';
+    if (charK2) charK2.style.transition = 'none';
   }, 1100);
 
   window.addEventListener('scroll', updateParallax, { passive: true });
