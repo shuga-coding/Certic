@@ -1517,6 +1517,70 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .plan .btn {
   margin-top: auto;
 }
+.plan__desc {
+  font-size: 13px;
+  color: var(--ink2);
+  margin-bottom: 16px;
+  line-height: 1.55;
+}
+.plan--hot .plan__desc { color: rgba(255,255,255,0.75); }
+.plan__note {
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.55;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+}
+.plan--hot .plan__note {
+  background: rgba(255,255,255,0.12);
+  border-left-color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.85);
+}
+
+/* ── PRICING PERKS ────────────────────────── */
+.pricing-perks {
+  margin-top: 40px;
+  padding: 28px 32px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+}
+.pricing-perks__title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink2);
+  margin-bottom: 20px;
+}
+.pricing-perks__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+}
+.pperk {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.pperk__ic {
+  width: 32px;
+  height: 32px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent);
+}
 
 /* ── CONTACTS ─────────────────────────────── */
 .contacts {
@@ -1775,8 +1839,17 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     height: 20;
   }
   .hero__btns .btn { width: 100%; justify-content: center; }
-  .hero__note{
-    font-size: 16px;
+  .logo__img--hero {
+    display: none;
+  }
+  .hero__note {
+    line-height: 1.2;
+    font-size: 30px;
+    font-family: 'Dela Gothic One', sans-serif;
+    font-weight: 400;
+    text-align: left;
+    padding: 10px 0px;
+    margin-bottom: 20px;
   }
   
    .hchar--m {
@@ -1788,6 +1861,9 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .hero{
     padding-top: var(--header-h);
     padding-bottom: 30%;
+  }
+  .hero__content {
+    padding-bottom: 70px;
   }
   .hchar--g {
         width: 16em;
