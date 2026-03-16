@@ -1505,6 +1505,10 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   display: flex;
   align-items: center;
 }
+
+.lt{
+  text-decoration: line-through;
+}
 .plc svg { width: 14px; height: 14px; stroke: currentColor; }
 .plan--hot .plc { color: rgba(255,255,255,0.9); }
 .plan__tip {
