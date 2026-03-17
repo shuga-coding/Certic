@@ -1457,6 +1457,15 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   margin-bottom: 20px;
   color: var(--ink);
 }
+.plan__sub {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--ink2);
+  margin-top: 2px;
+}
+.plan--hot .plan__sub { color: rgba(255,255,255,0.65); }
 .plan--hot .plan__name { color: white; }
 .plan__setup {
   font-size: 30px;
