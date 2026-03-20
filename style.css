@@ -1609,80 +1609,53 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 /* ── CONTACTS ─────────────────────────────── */
 .contacts {
   padding: 80px 0;
-  background: var(--bg);
+  background: var(--white);
   position: relative;
   z-index: 2;
   border-top: 1px solid var(--border);
 }
-.contacts__row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 48px;
-}
-.contacts__lead { max-width: 380px; }
-.contacts__lead .sh__label {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  background: var(--accent-light);
-  padding: 4px 12px;
-  border-radius: 50px;
-  margin-bottom: 20px;
-}
-.contacts__title {
-  font-size: 40px;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-.contacts__sub {
-  font-size: 18px;
-  color: var(--ink2);
-  line-height: 1.65;
-}
-.contacts .clinks { min-width: 420px; }
 
-.clinks { display: flex; flex-direction: column; gap: 10px; }
-.clink {
+/* ── 2×2 GRID ── */
+.clinks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.clink-card {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
-  background: var(--white);
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 32px;
+  background: var(--bg);
   border: 1.5px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
   transition: all var(--dur) var(--ease);
 }
-.clink:hover {
+.clink-card:hover {
   border-color: var(--accent-mid);
   background: var(--accent-light);
-  transform: translateX(4px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79,70,229,.08);
 }
-.clink__ic {
-  width: 42px; height: 42px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
+
+.clink-card__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink3);
+  line-height: 1.4;
 }
-.clink__ic--tg { background: #e8f4fd; color: #2686ed; }
-.clink__ic--vk { background: #e8f0f8; color: #4a7fbc; }
-.clink__ic--phone { background: #dcfce7; }
-.clink__ic--mail { background: #fff7ed; }
-.clink__info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
-.clink__info span { font-size: 12px; color: var(--ink3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; }
-.clink__info strong { font-size: 16px; color: var(--ink); }
-.clink__arr { color: var(--ink3); display: flex; align-items: center; transition: transform var(--dur) var(--ease); }
-.clink__arr svg { width: 18px; height: 18px; }
-.clink:hover .clink__arr { transform: translateX(4px); color: var(--accent); }
+
+.clink-card__value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
 
 /* Form */
 .cform {
@@ -1872,10 +1845,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .mst { font-size: 9px; padding: 2px 6px; }
 
   .ademo__layout { grid-template-columns: 1fr; }
-  .contacts__row { flex-direction: column; align-items: flex-start; gap: 32px; }
-  .contacts__title { font-size: 30px; }
-  .contacts__lead { max-width: 100%; }
-  .contacts .clinks { min-width: 0; width: 100%; }
+  .clinks-grid { grid-template-columns: 1fr; }
+  .clink-card__value { font-size: 18px; }
   .plans { grid-template-columns: 1fr; max-width: 480px; }
 
   .hchar--m {
