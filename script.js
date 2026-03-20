@@ -246,63 +246,24 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-/* ═══════════════════════════════════════
-   CONTACT FORM
-═══════════════════════════════════════ */
-function submitForm(e) {
-  e.preventDefault();
-  const name    = document.getElementById('cfName');
-  const phone   = document.getElementById('cfPhone');
-  const contact = document.getElementById('cfContact');
-  const agree   = document.getElementById('cfAgree');
-
-  let valid = true;
-
-  [name, phone, contact].forEach(input => {
-    if (!input.value.trim()) {
-      input.classList.add('err');
-      input.addEventListener('input', () => input.classList.remove('err'), { once: true });
-      valid = false;
-    }
-  });
-
-  if (!agree.checked) {
-    agree.style.outline = '2px solid #ef4444';
-    setTimeout(() => agree.style.outline = '', 1500);
-    valid = false;
-  }
-
-  if (!valid) return;
-
-  const btn = document.getElementById('cfSubmit');
-  btn.disabled = true;
-  btn.textContent = 'Отправляем...';
-
-  setTimeout(() => {
-    document.getElementById('cformBody').style.display = 'none';
-    const done = document.getElementById('cformDone');
-    done.style.display = 'flex';
-  }, 900);
-}
-
-// Smooth nav link highlight on scroll
-const sections   = document.querySelectorAll('section[id]');
-const navLinks   = document.querySelectorAll('.nav__link');
+// Nav highlight on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav__link');
 
 const secObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
     const id = e.target.id;
     navLinks.forEach(a => {
-      a.style.color = '';
-      a.style.background = '';
-      if (a.getAttribute('href') === '#' + id) {
-        a.style.color = 'var(--accent)';
-        a.style.background = 'var(--accent-light)';
-      }
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
     });
   });
-}, { threshold: 0.5 });
+}, {
+  rootMargin: '-50% 0px -50% 0px',
+  threshold: 0
+});
+
+sections.forEach(s => secObs.observe(s));
 
 
 /* ═══════════════════════════════════════

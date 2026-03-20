@@ -20,8 +20,9 @@
     <nav class="nav" id="nav">
       <a href="#benefits" class="nav__link">Преимущества</a>
       <a href="#tester" class="nav__link">Как работает</a>
-      <a href="#faq" class="nav__link">FAQ</a>
+      <a href="#requirements" class="nav__link">Подключение</a>
       <a href="#pricing" class="nav__link">Тарифы</a>
+      <a href="#faq" class="nav__link">FAQ</a>
       <a href="#contacts" class="btn btn--primary btn--sm">Оставить заявку</a>
     </nav>
     <button class="burger" id="burger" aria-label="Меню">
@@ -31,8 +32,9 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#benefits" class="mobile-link">Преимущества</a>
     <a href="#tester" class="mobile-link">Как работает</a>
-    <a href="#faq" class="mobile-link">FAQ</a>
+    <a href="#requirements" class="mobile-link">Подключение</a>
     <a href="#pricing" class="mobile-link">Тарифы</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
     <a href="#contacts" class="btn btn--primary mobile-cta">Подключиться</a>
   </div>
 </header>
@@ -143,7 +145,7 @@
   <div class="container">
     <div class="sh reveal">
       <div class="sh__label">интерактивный тест</div>
-      <h2 class="sh__title">Круглосуточное оформление сертификатов в один клик</h2>
+      <h2 class="sh__title">Оформление сертификатов в один клик</h2>
       <p class="sh__sub">Попробуйте прямо сейчас — нажмите на кнопки с&nbsp;<span class="sh__hotspot-demo"><span class="hotspot hotspot--inline"></span></span></p>
       
     </div>
@@ -175,7 +177,8 @@
             <!-- Form state -->
             <div id="iphForm">
               <div class="iph-header">
-                <div class="iph-logo"></div>
+                  <div class="ios-notif__app-icon">С*</div>
+
               </div>
               <div class="iph-cert-preview">
                 <div class="iph-cert-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
@@ -192,8 +195,8 @@
                   <div class="iph-finput iph-sel">3 000 ₽ <span>▾</span></div>
                 </div>
                 <div class="iph-field">
-                  <div class="iph-flabel">Сообщение</div>
-                  <div class="iph-finput iph-msg">С днём рождения! 🎉</div>
+                  <div class="iph-flabel">Электронная почта</div>
+                  <div class="iph-finput iph-msg"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="620f030b0e0c030f07220f030b0e4c1017">[email&#160;protected]</a></a></div>
                 </div>
                 <button class="iph-btn" id="buyBtn">Оплатить</button>
               </div>
@@ -373,55 +376,96 @@
 </section>
 
 <!-- FAQ -->
-<section class="faq" id="faq">
+
+
+
+<!-- REQUIREMENTS -->
+<section class="requirements" id="requirements">
   <div class="container">
     <div class="sh reveal">
-      <div class="sh__label">вопросы и ответы</div>
-      <h2 class="sh__title">Всё, что вы хотели спросить</h2>
+      <div class="sh__label">до подключения</div>
+      <h2 class="sh__title">Что нужно для старта</h2>
+      <p class="sh__sub">Для работы сервиса нужен интернет-эквайринг — всё остальное мы настроим за вас</p>
     </div>
-    <div class="faq__list reveal">
 
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Какие платёжные системы поддерживаются?</span>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-        </button>
-        <div class="faq-a"><p>Подключается любой интернет-эквайринг: ЮКасса (ЮMoney), Сбер Бизнес Online, Тинькофф Эквайринг, Robokassa и другие. Выбираете тот, который уже используете или который удобнее по условиям.</p></div>
+    <div class="req__grid">
+
+      <div class="req__card reveal" data-d="0">
+        <div class="req__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <h3>Способы оплаты</h3>
+        <p>Ваши клиенты смогут платить картой или через СБП — самые популярные способы в России.</p>
+        <div class="req__tags">
+          <span class="req__tag">Банковские карты</span>
+          <span class="req__tag">СБП</span>
+        </div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Как вести учёт сертификатов?</span>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-        </button>
-        <div class="faq-a"><p>Для вас разработана удобная административная панель, адаптированная под любое устройство — телефон, планшет или компьютер. Все сертификаты в одном месте с полной информацией.</p></div>
+      <div class="req__card reveal" data-d="80">
+        <div class="req__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Выберите провайдера</h3>
+        <p>Подойдёт любой сервис, который вы уже используете или хотите подключить.</p>
+        <div class="req__providers">
+          <span class="req__provider">ЮKassa</span>
+          <span class="req__provider">Т-Банк</span>
+          <span class="req__provider">Сбербанк</span>
+        </div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Как клиент получает сертификат?</span>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-        </button>
-        <div class="faq-a"><p>После оплаты сертификат автоматически заполняется и отправляется на почту клиента. Также он может скачать сертификат сразу на странице успешной оплаты — мгновенно, без ожидания.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Можно ли перейти с другой системы?</span>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-        </button>
-        <div class="faq-a"><p>Да, переход возможен. При оформлении заявки укажите, откуда нужно перенести данные о действующих сертификатах — мы всё сделаем сами.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Возможно ли сменить тариф?</span>
-          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-        </button>
-        <div class="faq-a"><p>Да, вы можете заказать обновление дизайна и подключение к домену вашего сайта в любой момент. Просто напишите нам — обсудим детали и согласуем сроки.</p></div>
+      <div class="req__card reveal" data-d="160">
+        <div class="req__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>Кому подходит</h3>
+        <p>Работаем с разными формами бизнеса — не нужно быть крупной компанией.</p>
+        <div class="req__tags">
+          <span class="req__tag"><strong>Самозанятые</strong></span>
+          <span class="req__tag">ИП</span>
+        </div>
       </div>
 
     </div>
+
+    <div class="req__wide reveal" data-d="80">
+      <div class="req__wide-left">
+        <h3>Комиссии банков</h3>
+        <p>Стандартные комиссии платёжных систем — взимаются напрямую банком, не нами.</p>
+        <div class="req__commission-row">
+          <div class="req__commission">
+            <span class="req__commission-label">СБП</span>
+            <span class="req__commission-value">~0.4 – 0.7%</span>
+          </div>
+          <div class="req__commission">
+            <span class="req__commission-label">Карты</span>
+            <span class="req__commission-value">~1.5 – 2.9%</span>
+          </div>
+        </div>
+      </div>
+      <div class="req__wide-right">
+        <div class="req__highlight">
+          <div class="req__highlight-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Деньги — сразу на ваш счёт</strong>
+            <p>Мы не участвуем в обороте средств. Оплата от клиента идёт напрямую вам через выбранный банк.</p>
+          </div>
+        </div>
+        <div class="req__highlight">
+          <div class="req__highlight-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <strong>Подключение за 1–2 дня</strong>
+            <p>После заявки всё настраиваем самостоятельно — вам нужно только предоставить доступы к эквайрингу.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -495,77 +539,85 @@
   </div>
 </section>
 
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sh reveal">
+      <div class="sh__label">вопросы и ответы</div>
+      <h2 class="sh__title">Всё, что вы хотели спросить</h2>
+    </div>
+    <div class="faq__list reveal">
+
+    
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Как вести учёт сертификатов?</span>
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-a"><p>Для вас разработана удобная административная панель, адаптированная под любое устройство — телефон, планшет или компьютер. Все сертификаты в одном месте с полной информацией.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Как клиент получает сертификат?</span>
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-a"><p>После оплаты сертификат автоматически заполняется и отправляется на почту клиента. Также он может скачать сертификат сразу на странице успешной оплаты — мгновенно, без ожидания.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Можно ли перейти с другой системы?</span>
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-a"><p>Да, переход возможен. При оформлении заявки укажите, откуда нужно перенести данные о действующих сертификатах — мы всё сделаем сами.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Возможно ли сменить тариф?</span>
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="faq-a"><p>Да, вы можете заказать обновление дизайна и подключение к домену вашего сайта в любой момент. Просто напишите нам — обсудим детали и согласуем сроки.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACTS -->
 <section class="contacts" id="contacts">
   <div class="container">
-    <div class="sh reveal">
-      <div class="sh__label">связаться</div>
-      <h2 class="sh__title">Подключим ваш бизнес</h2>
-    </div>
-    <div class="contacts__cols">
+    <div class="contacts__row reveal">
 
-      <div class="contacts__info reveal">
-        <div class="ci-title">Напишите мне</div>
-        <div class="ci-sub">Обсудим проект, ответим на вопросы, согласуем детали</div>
-        <div class="clinks">
-          <a href="https://t.me/username" class="clink" target="_blank">
-            <div class="clink__ic clink__ic--tg">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.448 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.243-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
-            </div>
-            <div class="clink__info"><span>Telegram</span><strong>@username</strong></div>
-            <div class="clink__arr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-          </a>
-          <a href="https://vk.com/username" class="clink" target="_blank">
-            <div class="clink__ic clink__ic--vk">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.6-.19 1.37 1.26 2.185 1.815.617.422 1.086.33 1.086.33l2.182-.03s1.14-.071.6-.966c-.044-.073-.314-.661-1.618-1.869-1.367-1.265-1.184-1.06.463-3.249.999-1.332 1.398-2.146 1.273-2.493-.12-.331-.855-.244-.855-.244l-2.455.015s-.182-.025-.317.055-.217.26-.217.26-.386 1.026-.9 1.898c-1.085 1.839-1.518 1.937-1.696 1.822-.412-.267-.309-1.075-.309-1.648 0-1.793.272-2.54-.529-2.733-.266-.064-.461-.107-1.141-.114-.872-.009-1.609.003-2.026.207-.278.135-.492.437-.362.454.161.021.527.099.721.363.25.341.241 1.107.241 1.107s.144 2.11-.335 2.372c-.328.18-.778-.187-1.745-1.86-.496-.857-.871-1.805-.871-1.805s-.072-.176-.202-.271-.376-.151-.376-.151l-2.332.015s-.35.01-.478.162c-.112.136-.018.462-.018.462s1.826 4.271 3.895 6.422c1.897 1.973 4.051 1.843 4.051 1.843h.977c.295 0 .297-.315.297-.315z"/></svg>
-            </div>
-            <div class="clink__info"><span>ВКонтакте</span><strong>vk.com/username</strong></div>
-            <div class="clink__arr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-          </a>
-          <a href="tel:+79001234567" class="clink">
-            <div class="clink__ic clink__ic--phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-            <div class="clink__info"><span>Телефон</span><strong>+7 900 123-45-67</strong></div>
-            <div class="clink__arr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-          </a>
-          <a href="/cdn-cgi/l/email-protection#375f525b5b5877445245435e5c194542" class="clink">
-            <div class="clink__ic clink__ic--mail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div class="clink__info"><span>Email</span><strong><span class="__cf_email__" data-cfemail="e48c8188888ba4978196908d8fca9691">[email&#160;protected]</span></strong></div>
-            <div class="clink__arr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-          </a>
-        </div>
+      <div class="contacts__lead">
+        <div class="sh__label">связаться</div>
+        <h2 class="contacts__title">Подключим<br>ваш бизнес</h2>
+        <p class="contacts__sub">Обсудим проект, ответим на вопросы, согласуем детали</p>
       </div>
 
-      <div class="contacts__form reveal" data-d="100">
-        <div class="cform">
-          <div class="cform__title">Оставить заявку</div>
-          <div id="cformBody">
-            <div class="fg">
-              <label class="fl" for="cfName">Ваше имя</label>
-              <input type="text" id="cfName" class="fi" placeholder="Иван Иванов">
-            </div>
-            <div class="fg">
-              <label class="fl" for="cfPhone">Номер телефона</label>
-              <input type="tel" id="cfPhone" class="fi" placeholder="+7 900 000-00-00">
-            </div>
-            <div class="fg">
-              <label class="fl" for="cfContact">Где с вами связаться?</label>
-              <input type="text" id="cfContact" class="fi" placeholder="Telegram / ВКонтакте / WhatsApp...">
-            </div>
-            <div class="fchk">
-              <input type="checkbox" id="cfAgree" class="fchk__inp">
-              <label for="cfAgree" class="fchk__lbl">Принимаю <a href="#" class="il">пользовательское соглашение</a> и соглашаюсь с обработкой персональных данных</label>
-            </div>
-            <button class="btn btn--primary btn--full btn--xl" id="cfSubmit" onclick="submitForm(event)">
-              Отправить заявку
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
-            </button>
+      <div class="clinks">
+        <a href="https://t.me/username" class="clink" target="_blank">
+          <div class="clink__ic clink__ic--tg">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.448 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.243-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
           </div>
-          <div class="cform-done" id="cformDone">
-            <div class="cform-done__ic">🎉</div>
-            <h4>Заявка отправлена!</h4>
-            <p>Свяжемся с вами в течение рабочего дня</p>
+          <div class="clink__info"><span>Telegram</span><strong>@username</strong></div>
+          <div class="clink__arr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
+        <a href="https://vk.com/username" class="clink" target="_blank">
+          <div class="clink__ic clink__ic--vk">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.6-.19 1.37 1.26 2.185 1.815.617.422 1.086.33 1.086.33l2.182-.03s1.14-.071.6-.966c-.044-.073-.314-.661-1.618-1.869-1.367-1.265-1.184-1.06.463-3.249.999-1.332 1.398-2.146 1.273-2.493-.12-.331-.855-.244-.855-.244l-2.455.015s-.182-.025-.317.055-.217.26-.217.26-.386 1.026-.9 1.898c-1.085 1.839-1.518 1.937-1.696 1.822-.412-.267-.309-1.075-.309-1.648 0-1.793.272-2.54-.529-2.733-.266-.064-.461-.107-1.141-.114-.872-.009-1.609.003-2.026.207-.278.135-.492.437-.362.454.161.021.527.099.721.363.25.341.241 1.107.241 1.107s.144 2.11-.335 2.372c-.328.18-.778-.187-1.745-1.86-.496-.857-.871-1.805-.871-1.805s-.072-.176-.202-.271-.376-.151-.376-.151l-2.332.015s-.35.01-.478.162c-.112.136-.018.462-.018.462s1.826 4.271 3.895 6.422c1.897 1.973 4.051 1.843 4.051 1.843h.977c.295 0 .297-.315.297-.315z"/></svg>
           </div>
-        </div>
+          <div class="clink__info"><span>ВКонтакте</span><strong>vk.com/username</strong></div>
+          <div class="clink__arr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
+        <a href="/cdn-cgi/l/email-protection#5038353c3c3f103335222439337e2225" class="clink">
+          <div class="clink__ic clink__ic--mail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="clink__info"><span>Email</span><strong><span class="__cf_email__" data-cfemail="9ff7faf3f3f0dffcfaedebf6fcb1edea">[email&#160;protected]</span></strong></div>
+          <div class="clink__arr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
       </div>
 
     </div>
@@ -580,7 +632,7 @@
         <img src="logo.svg" alt="Сертик*" class="logo__img logo__img--footer">
       </a>
       <a href="#" class="footer__policy">Политика конфиденциальности</a>
-      <span class="footer__copy">© 2026 Сертик*</span>
+      <span class="footer__copy">© 2025 Сертик*</span>
     </div>
   </div>
 </footer>
