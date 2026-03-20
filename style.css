@@ -246,7 +246,7 @@ svg * {
   --dur: 0.25s;
 }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 18px; }
 body {
   font-family: var(--font);
   background: var(--bg);
@@ -377,7 +377,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .nav { display: flex; align-items: center; gap: 4px; }
 .nav__link {
   padding: 8px 14px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--ink2);
   border-radius: 8px;
@@ -450,7 +450,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   line-height: 1.1;
   color: var(--ink);
 }
-.sh__sub { margin-top: 14px; font-size: 17px; color: var(--ink2); }
+.sh__sub { margin-top: 14px; font-size: 20px; color: var(--ink2); }
 
 /* ── HERO ──────────────────────────────────── */
 .hero {
@@ -496,13 +496,15 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   display: flex;
   position: relative;
   z-index: 2; 
-  max-width: 680px; 
+  max-width: 680px;
+  width: 100%;
   }
   .hero__content-main{
     display: flex;
     justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
   }
 
 
@@ -514,15 +516,20 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 .hero__note {
-  font-size: 1.2em;
-  color: var(--ink2);
-  line-height: 1.65;
-  max-width: 500px;
-  padding: 10px 22px;
-  margin-bottom: 40px;
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-family: 'Dela Gothic One', sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.123;
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 90px;
   text-align: center;
+  letter-spacing: -0.01em;
 }
-.hero__note em { color: var(--accent); font-style: normal; font-weight: 900; }
+.hero__note-first { color: var(--accent); }
+.hero__note em { color: var(--accent); font-style: normal; font-weight: 400; }
 
 .hero__btns {
   display: flex;
@@ -607,7 +614,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .benefits {
   position: relative;
   z-index: 2;
-  padding: 33px 0;
+  padding: 80px 0;
   background: var(--white);
   box-shadow: 0 -8px 40px rgba(15,17,32,0.10);
 }
@@ -692,7 +699,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .bcard--accent .bcard__tag { color: white; }
 .bcard:hover .bcard__tag { transform: scale(1.1) rotate(5deg); }
 .bcard h3 {
-  font-size: 19px;
+  font-size: 22px;
   font-weight: 800;
   color: var(--ink);
   margin-bottom: 10px;
@@ -700,7 +707,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 
-.bcard p { font-size: 15px; color: var(--ink2); line-height: 1.65; }
+.bcard p { font-size: 17px; font-weight: 600; color: var(--ink2); line-height: 1.65; }
 .bcard.bcard--accent h3,
 .bcard.bcard--accent p { color: #ffffff !important; }
 
@@ -763,7 +770,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* — Section wrapper — */
 .tester {
-  padding: 50px 0 0;
+  padding: 80px 0;
   background: var(--bg);
   position: relative;
    z-index: 2;
@@ -1131,6 +1138,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .mst {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   font-size: 10px;
   font-weight: 800;
   padding: 3px 8px;
@@ -1208,6 +1216,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   user-select: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
 }
 .ademo__sb-item svg { width: 13px; height: 13px; flex-shrink: 0; }
@@ -1268,7 +1277,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   margin-bottom: 4px;
 }
 .ademo__row--new { background: #f0fdf4; border: 1.5px solid #bbf7d0; }
-.ast { display: inline-flex; padding: 3px 8px; border-radius: 50px; font-size: 10px; font-weight: 700; }
+.ast { display: inline-flex; align-items: center; justify-content: center; padding: 3px 8px; border-radius: 50px; font-size: 10px; font-weight: 700; }
 .ast--paid    { background: var(--green-bg); color: var(--green); }
 .ast--pending { background: var(--orange-bg); color: var(--orange); }
 .ademo__close-btn { cursor: pointer; color: var(--ink3); font-size: 12px; transition: color var(--dur); }
@@ -1347,11 +1356,11 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 .af-icon svg { width: 22px; height: 22px; }
 .af-text strong { display: block; font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-.af-text p { font-size: 14px; color: var(--ink2); line-height: 1.6; }
+.af-text p { font-size: 14px;font-weight: 600; color: var(--ink2); line-height: 1.6; }
 
 /* ── FAQ ──────────────────────────────────── */
 .faq {
-  padding: 70px 0;
+  padding: 80px 0;
   background: var(--white);
   position: relative;
   z-index: 2;
@@ -1378,7 +1387,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   justify-content: space-between;
   gap: 16px;
   padding: 20px 24px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--ink);
   background: none;
@@ -1406,14 +1415,15 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .faq-item.open .faq-a { max-height: 300px; }
 .faq-a p {
   padding: 0 24px 20px;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: 600;
   color: var(--ink2);
   line-height: 1.7;
 }
 
 /* ── PRICING ──────────────────────────────── */
 .pricing {
-  padding: 70px 0;
+  padding: 80px 0;
   background: var(--bg);
   position: relative;
   z-index: 2;
@@ -1452,7 +1462,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   margin-bottom: 16px;
 }
 .plan__name {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 900;
   letter-spacing: -0.03em;
   margin-bottom: 20px;
@@ -1482,7 +1492,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 .plan--hot .plan__setup span { color: rgba(255,255,255,0.7); }
 .plan__monthly {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--ink2);
   margin-top: 6px;
   margin-bottom: 20px;
@@ -1502,14 +1512,14 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   flex-direction: column;
   gap: 10px;
   margin-block: 28px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--ink2);
 }
 .plan--hot .plan__list { color: rgba(255,255,255,0.9); }
 .plan__list li { display: flex; gap: 8px; align-items: flex-start; }
 .plc {
-  color: var(--green);
+  color: var(--accent);
   flex-shrink: 0;
   margin-top: 2px;
   display: flex;
@@ -1532,14 +1542,14 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   margin-top: auto;
 }
 .plan__desc {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--ink2);
   margin-bottom: 16px;
   line-height: 1.55;
 }
 .plan--hot .plan__desc { color: rgba(255,255,255,0.75); }
 .plan__note {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--ink2);
   line-height: 1.55;
   margin-bottom: 16px;
@@ -1632,7 +1642,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   margin-bottom: 16px;
 }
 .contacts__sub {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--ink2);
   line-height: 1.65;
 }
@@ -1668,8 +1678,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .clink__ic--phone { background: #dcfce7; }
 .clink__ic--mail { background: #fff7ed; }
 .clink__info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
-.clink__info span { font-size: 11px; color: var(--ink3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; }
-.clink__info strong { font-size: 14px; color: var(--ink); }
+.clink__info span { font-size: 12px; color: var(--ink3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; }
+.clink__info strong { font-size: 16px; color: var(--ink); }
 .clink__arr { color: var(--ink3); display: flex; align-items: center; transition: transform var(--dur) var(--ease); }
 .clink__arr svg { width: 18px; height: 18px; }
 .clink:hover .clink__arr { transform: translateX(4px); color: var(--accent); }
@@ -1816,6 +1826,10 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .nav { display: none; }
   .burger { display: flex; }
   .hero { min-height: 100vh; padding-bottom: 60px; }
+  .hero__content { align-items: flex-start; }
+  .hero__content-main { align-items: flex-start; }
+  .hero__note { text-align: left; }
+  .hero__btns { align-self: flex-start; }
   .bento { grid-template-columns: 1fr; }
   .bcard--lg {
     grid-column: span 1;
@@ -1886,7 +1900,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     display: none;
   }
   .hero__note {
-    line-height: 1.2;
+    line-height: 1.15;
     font-size: 30px;
     font-family: 'Dela Gothic One', sans-serif;
     font-weight: 400;
@@ -1982,7 +1996,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
    REQUIREMENTS — Что нужно для старта
    ════════════════════════════════════════════ */
 .requirements {
-  padding-top: 70px;
+  padding: 80px 0;
   position: relative;
   z-index: 2;
   background: var(--bg);
@@ -2017,8 +2031,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   color: var(--accent);
 }
 .req__card-icon svg { width: 20px; height: 20px; }
-.req__card h3 { font-size: 17px; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
-.req__card p  { font-size: 14px; color: var(--ink2); line-height: 1.65; }
+.req__card h3 { font-size: 20px; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
+.req__card p  { font-size: 16px;font-weight: 600; color: var(--ink2); line-height: 1.65; }
 
 .req__tags    { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
 .req__tag {
@@ -2039,6 +2053,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   background: linear-gradient(145deg, #4f46e5, #6366f1);
   border-color: transparent;
   border-radius: var(--radius-lg);
+  transition: all var(--dur) var(--ease);
   padding: 40px 44px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2055,8 +2070,9 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     radial-gradient(ellipse 50% 60% at 90% 20%, rgba(255,255,255,.05) 0%, transparent 60%);
   pointer-events: none;
 }
+.req__wide:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(79,70,229,0.25); }
 .req__wide-left  { position: relative; z-index: 1; }
-.req__wide-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 20px; }
+.req__wide-right { margin-top: 7px; position: relative; z-index: 1; display: flex; flex-direction: column; gap: 29px; }
 
 .req__wide-left h3 {
   font-size: 20px; font-weight: 800; color: #fff;
@@ -2064,6 +2080,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 .req__wide-left > p {
   font-size: 14px; color: rgba(255,255,255,.7);
+  font-weight: 600;
   line-height: 1.7; margin-bottom: 24px;
 }
 .req__commission-row { display: flex; gap: 16px; }
@@ -2078,7 +2095,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px;
 }
 .req__commission-value {
-  display: block; font-size: 22px; font-weight: 900;
+  display: block; font-size: 26px; font-weight: 900;
   color: #fff; letter-spacing: -0.03em;
 }
 .req__highlight { display: flex; gap: 14px; align-items: flex-start; }
@@ -2090,14 +2107,41 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 .req__highlight-icon svg { width: 16px; height: 16px; stroke: #fff; }
 .req__highlight strong {
-  display: block; font-size: 15px; font-weight: 800;
+  display: block; font-size: 17px; font-weight: 800;
   color: #fff; letter-spacing: -0.02em; margin-bottom: 4px;
 }
-.req__highlight p { font-size: 13.5px; color: rgba(255,255,255,.7); line-height: 1.65; }
+.req__highlight p { font-size: 15px; color: rgba(255,255,255,.7); line-height: 1.65; }
 
 @media (max-width: 900px) {
   .req__grid { grid-template-columns: 1fr 1fr; }
   .req__wide  { grid-template-columns: 1fr; gap: 28px; padding: 28px 24px; }
+}
+
+/* ── PLAN DISABLED (В разработке) ── */
+.plan--disabled {
+  opacity: 0.55;
+  pointer-events: none;
+  filter: grayscale(0.3);
+}
+.plan--disabled .btn {
+  background: var(--border);
+  color: var(--ink3);
+  border-color: var(--border);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.plan__badge-wip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--amber, #d97706);
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  padding: 3px 12px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
 }
 @media (max-width: 600px) {
   .req__grid          { grid-template-columns: 1fr; }

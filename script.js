@@ -15,6 +15,16 @@ burger.addEventListener('click', () => {
   document.body.style.overflow = open ? 'hidden' : '';
 });
 
+// Close menu on tap outside
+document.addEventListener('click', (e) => {
+  if (!mobileMenu.classList.contains('open')) return;
+  if (!mobileMenu.contains(e.target) && !burger.contains(e.target)) {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
 mobileMenu.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     burger.classList.remove('open');
