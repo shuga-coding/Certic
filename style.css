@@ -1699,7 +1699,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* ── FOOTER ──────────────────────────────── */
 .footer {
-  background: var(--white);
+  background: var(--bg);
   border-top: 1px solid var(--border);
   padding: 28px 0;
   position: relative;
