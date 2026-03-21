@@ -1635,6 +1635,10 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   text-decoration: none;
   transition: all var(--dur) var(--ease);
 }
+
+.clink-card:first-child{
+  border:  1.5px solid var(--accent);
+}
 .clink-card:hover {
   border-color: var(--accent-mid);
   background: var(--accent-light);
