@@ -454,6 +454,15 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 .sh__sub { margin-top: 14px; font-size: 20px; color: var(--ink2); }
 
+.sh__sub-hero{
+  margin-bottom: 55px; font-size: 20px; color: var(--ink2);}
+  .sh__sub-benefits{
+    font-weight: 600;
+    margin-top: 35px;
+   text-align: center;
+    font-size: 20px; color: var(--ink2);
+  }
+
 /* ── HERO ──────────────────────────────────── */
 .hero {
   position: sticky;
@@ -526,7 +535,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   max-width: 100%;
   width: 100%;
   padding: 0;
-  margin-bottom: 90px;
+  margin-bottom: 25px;
   text-align: center;
   letter-spacing: -0.01em;
 }
@@ -618,7 +627,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .benefits {
   position: relative;
   z-index: 2;
-  padding: 80px 0;
+  padding: 40px 0;
   background: var(--white);
   box-shadow: 0 -8px 40px rgba(15,17,32,0.10);
 }
@@ -1194,7 +1203,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 /* Win body: sidebar left + main right */
 .ademo__win-body {
   display: flex;
-  min-height: 260px;
+  min-height: 300px;
 }
 
 /* ── Sidebar (desktop: vertical column) ── */
@@ -1508,6 +1517,13 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   height: 1px;
   background: var(--border);
   margin-bottom: 20px;
+}
+
+.plan__divider-benefits{
+  margin-top: 70px;
+  height: 1px;
+  background: var(--border);
+
 }
 .plan--hot .plan__divider { background: rgba(255,255,255,0.2); }
 .plan__list {
@@ -1898,7 +1914,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     top: unset;
     bottom: -173px;
     right: -76px;
-    width: 16em;
+    width: 14.5em;
   }
   .hero{
     padding-top: var(--header-h);
@@ -1908,9 +1924,12 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     padding-bottom: 70px;
   }
   .hchar--g {
-        width: 15em;
+        width: 14.5em;
         bottom: -173px;
         left: -69px;
+    }
+    .sh__sub-hero{
+      margin-bottom: 25px; font-size: 15px;
     }
 
 
