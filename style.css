@@ -466,7 +466,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   z-index: 1;
 }
 
-.hero__decor { position: absolute; inset: 0; pointer-events: none; }
+.hero__decor { position: absolute; inset: 0; pointer-events: none;  }
 .hd-circle {
   position: absolute;
   border-radius: 50%;
@@ -540,6 +540,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* ── HERO CHARACTERS ────────────────────────── */
 .hero__chars {
+  margin: 0 auto;
+  max-width: 1500px;
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -559,7 +561,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .hchar--g {
   position: absolute;
   bottom: -190px;
-  left: 220px;
+  left: 143px;
   width: clamp(170px, 23vw, 330px);
 }
 
@@ -1788,14 +1790,14 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .tester__devices { gap: 24px; }
   .mac-wrap { width: 460px; }
     .hchar--m {
-        top: calc(var(--header-h) - -81px);
+        top: calc(var(--header-h) - -11px);
         right: -42px;
-        width: 16em;
+        width: 15em;
 }
 .hchar--g{
-      bottom: -157px;
+      bottom: -200px;
       width: 17em;
-      left: -17px;
+      left: -32px;
 }
 }
 
@@ -1854,12 +1856,12 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .plans { grid-template-columns: 1fr; max-width: 480px; }
 
   .hchar--m {
-        top: calc(var(--header-h) - -0px);
+        top: calc(var(--header-h) - -16px);
         right: -35px;
         width: 14em;
 }
 .hchar--g{
-      bottom: -140px;
+      bottom: -217px;
       width: 15em;
       left: -17px;
 }
@@ -1888,7 +1890,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     top: unset;
     bottom: -173px;
     right: -76px;
-    width: 17em;
+    width: 16em;
   }
   .hero{
     padding-top: var(--header-h);
@@ -1898,7 +1900,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     padding-bottom: 70px;
   }
   .hchar--g {
-        width: 16em;
+        width: 15em;
         bottom: -173px;
         left: -69px;
     }
