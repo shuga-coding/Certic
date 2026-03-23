@@ -454,14 +454,14 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 .sh__sub { margin-top: 14px; font-size: 20px; color: var(--ink2); }
 
-.sh__sub-hero{
+.sh__sub_hero{
   margin-bottom: 55px; font-size: 20px; color: var(--ink2);}
-  .sh__sub-benefits{
+  .sh__sub_benefits{
     font-weight: 600;
     margin-top: 35px;
    text-align: center;
     font-size: 20px; color: var(--ink2);
-    
+
   }
 
 /* ── HERO ──────────────────────────────────── */
