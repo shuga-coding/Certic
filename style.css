@@ -1296,7 +1296,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .ademo__close-btn { cursor: pointer; color: var(--ink3); font-size: 12px; transition: color var(--dur); }
 .ademo__close-btn:hover { color: #ef4444; }
 
-/* ── Statistics panel ── */
+/* ── Statistics panel - ── */
 .ada__section-title {
   font-size: 10px;
   font-weight: 800;
