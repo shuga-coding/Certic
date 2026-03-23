@@ -350,6 +350,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 /* Футер — чуть меньше хедера */
 .logo__img--footer {
+  margin-bottom: 5px;
+  margin-top: 16px;
   height: 18px;
   width: auto;
   display: block;
@@ -1703,7 +1705,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .footer {
   background: var(--bg);
   border-top: 1px solid var(--border);
-  padding: 28px 0;
+  padding: 25px 0;
   position: relative;
   z-index: 2;
 }
@@ -1714,9 +1716,15 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   flex-wrap: wrap;
   gap: 16px;
 }
+
+.footer_logo_c{
+  display: flex;
+  flex-direction: column;
+}
+
 .footer__policy { font-size: 14px; font-weight: 600; color: var(--ink2); transition: color var(--dur); }
 .footer__policy:hover { color: var(--accent); }
-.footer__copy { font-size: 14px; color: var(--ink3); }
+.footer__copy { font-size: 10px; color: var(--ink3); }
 
 /* ── Hotspot pulse markers ────────────── */
 .hotspot {
