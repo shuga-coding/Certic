@@ -1929,7 +1929,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
         bottom: -173px;
         left: -69px;
     }
-    .sh__sub-hero{
+    .sh__sub_hero{
       margin-bottom: 25px; font-size: 15px;
     }
     
