@@ -458,7 +458,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   margin-bottom: 55px; font-size: 20px; color: var(--ink2);}
   .sh__sub_benefits{
     font-weight: 600;
-    margin-top: 35px;
+    margin-top: 0px;
    text-align: center;
     font-size: 20px; color: var(--ink2);
 
@@ -634,6 +634,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 .bento {
+  margin-bottom: 45px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
@@ -2152,4 +2153,554 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 @media (max-width: 600px) {
   .req__grid          { grid-template-columns: 1fr; }
   .req__commission-row { flex-direction: column; gap: 10px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   SECURITY SECTION
+   ═══════════════════════════════════════════════════════════ */
+
+.security {
+  padding: 100px 0 120px;
+  background: var(--white);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 -8px 40px rgba(15,17,32,0.06);
+}
+
+/* ── Двухколонная сетка ── */
+.sec__split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ── Панель ── */
+.sec__panel {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px 48px 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  position: relative;
+}
+.sec__panel:hover {
+  border-color: var(--accent-mid);
+  box-shadow: 0 16px 48px rgba(79,70,229,0.07);
+}
+
+/* ── Текстовая часть ── */
+.sec__panel-text {
+  position: relative;
+  z-index: 1;
+}
+.sec__panel-title {
+  font-size: clamp(24px, 2.8vw, 32px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+.sec__panel-desc {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink2);
+  line-height: 1.7;
+  max-width: 380px;
+}
+
+/* ── Визуальная зона ── */
+.sec__panel-visual {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 40px;
+  position: relative;
+}
+
+/* ════════════════════
+   МАКЕТ СЕРТИФИКАТА
+   ════════════════════ */
+.sec__cert-mockup {
+  width: 100%;
+  max-width: 320px;
+  background: linear-gradient(145deg, #1e1b4b, #312e81);
+  border-radius: 20px 20px 0 0;
+  padding: 28px 28px 36px;
+  color: #fff;
+  position: relative;
+  box-shadow: 0 -8px 40px rgba(79,70,229,0.25);
+  transform: translateY(0);
+  transition: transform 0.4s var(--ease);
+}
+.sec__panel:hover .sec__cert-mockup {
+  transform: translateY(-6px);
+}
+
+.sec__cert-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.sec__cert-logo {
+  width: 32px; height: 32px;
+  background: var(--accent);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 900; color: #fff;
+  flex-shrink: 0;
+}
+.sec__cert-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+}
+
+.sec__cert-amount {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+.sec__cert-code-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+.sec__cert-code {
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #a5b4fc;
+}
+.sec__cert-valid {
+  font-size: 13px;
+  font-weight: 700;
+  color: #86efac;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Щит-иконка в правом верхнем углу */
+.sec__cert-shield {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: #a5b4fc;
+}
+.sec__cert-shield svg {
+  width: 18px; height: 18px;
+}
+
+/* Пульсирующий код при активации */
+.sec__panel.sec--active .sec__cert-code {
+  animation: codePulse 3s ease-in-out 0.5s 1;
+}
+@keyframes codePulse {
+  0%,100% { color: #a5b4fc; }
+  40%      { color: #fff; text-shadow: 0 0 20px rgba(165,180,252,0.8); }
+}
+
+
+/* ════════════════════
+   МАКЕТ ОБЛАКА
+   ════════════════════ */
+.sec__cloud-mockup {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.sec__cloud-devices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Устройства */
+.sec__device {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease);
+}
+.sec__panel:hover .sec__device {
+  transform: translateY(-4px);
+}
+.sec__panel:hover .sec__device--mac { transition-delay: 0.06s; }
+
+.sec__device--phone {
+  width: 72px;
+  height: 100px;
+  border-radius: 14px;
+  padding: 10px 8px;
+}
+.sec__device--mac {
+  width: 110px;
+  height: 80px;
+  border-radius: 8px 8px 0 0;
+  padding: 8px;
+}
+
+.sec__device-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  justify-content: center;
+}
+.sec__device-row {
+  height: 6px;
+  background: var(--accent-light);
+  border-radius: 3px;
+}
+.sec__device-row--short { width: 65%; }
+.sec__device-stand {
+  width: 40px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 0 0 4px 4px;
+  margin: 0 auto;
+}
+
+/* Облако по центру */
+.sec__cloud-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+.sec__cloud-icon {
+  width: 52px; height: 52px;
+  stroke: var(--accent);
+  opacity: 0.5;
+  transition: opacity 0.4s;
+}
+.sec__panel.sec--active .sec__cloud-icon {
+  opacity: 1;
+  animation: cloudBreathe 3s ease-in-out infinite;
+}
+@keyframes cloudBreathe {
+  0%,100% { transform: scale(1); opacity: 0.9; }
+  50%      { transform: scale(1.08); opacity: 1; }
+}
+
+/* Точки синхронизации */
+.sec__cloud-sync-dot {
+  width: 5px; height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+}
+.sec__panel.sec--active .sec__cloud-sync-dot {
+  animation: dotFlow 1.6s ease-in-out infinite;
+}
+@keyframes dotFlow {
+  0%,80%,100% { opacity: 0; transform: translateY(0); }
+  40%          { opacity: 1; transform: translateY(-6px); }
+}
+
+.sec__cloud-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink3);
+  text-align: center;
+  padding: 12px 0 0;
+  width: 100%;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+.sec__panel.sec--active .sec__cloud-label {
+  color: var(--accent);
+}
+
+
+/* ── Адаптив ── */
+@media (max-width: 900px) {
+  .sec__split { grid-template-columns: 1fr; gap: 16px; }
+  .sec__panel { min-height: 400px; padding: 36px 32px 0; }
+}
+@media (max-width: 600px) {
+  .security { padding: 72px 0 80px; }
+  .sec__panel { padding: 28px 22px 0; min-height: 360px; }
+  .sec__panel-title { font-size: 24px; }
+  .sec__panel-desc { font-size: 16px; }
+  .sec__cert-amount { font-size: 34px; }
+  .sec__cert-code { font-size: 13px; }
+  .sec__cert-mockup { padding: 22px 22px 30px; }
+  .sec__cert-valid{font-size: 10px;}
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   HOW IT WORKS
+   ═══════════════════════════════════════════════════════════ */
+
+.how {
+  padding: 45px 0 45px;
+  background: var(--bg);
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Поток шагов ── */
+.how__flow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+}
+
+/* ── Стрелки между шагами ── */
+.how__arrow {
+  flex-shrink: 0;
+  width: 40px;
+  margin-top: 44px;
+  color: var(--accent-mid);
+  opacity: 0.7;
+}
+.how__arrow svg {
+  width: 40px;
+  height: 16px;
+}
+
+/* ── Шаг ── */
+.how__step {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 8px;
+  position: relative;
+}
+
+/* Номер */
+.how__step-num {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.how__step.is-visible .how__step-num {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Иконка — большой кружок */
+.how__step-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
+  transform: scale(0.85);
+  opacity: 0;
+}
+.how__step.is-visible .how__step-icon {
+  transform: scale(1);
+  opacity: 1;
+}
+.how__step-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--accent);
+  transition: transform 0.3s var(--ease);
+}
+
+/* Активный шаг — акцентный */
+.how__step.is-active .how__step-icon {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 8px 32px rgba(79,70,229,0.28);
+}
+.how__step.is-active .how__step-icon svg {
+  stroke: #fff;
+}
+.how__step.is-active .how__step-num {
+  color: var(--accent-h);
+}
+
+/* Hover */
+.how__step:hover .how__step-icon {
+  transform: scale(1.08);
+  border-color: var(--accent);
+  box-shadow: 0 8px 28px rgba(79,70,229,0.18);
+}
+.how__step:hover .how__step-icon svg {
+  transform: scale(1.1);
+}
+
+/* Текст */
+.how__step-body h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+.how__step-body p {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink3);
+  line-height: 1.6;
+}
+
+/* Соединительная линия между иконками (desktop) */
+
+.how__step-icon { z-index: 1; }
+
+/* ── Итоговая строка ── */
+.how__result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+.how__result-inner {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.how__result-inner:hover {
+  border-color: var(--accent-mid);
+  box-shadow: 0 8px 32px rgba(79,70,229,0.07);
+}
+.how__result-label {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.how__result-text {
+  flex: 1;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink2);
+  line-height: 1.5;
+}
+.how__result-inner .btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Анимация появления шагов ── */
+.how__step {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.how__step.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Адаптив: планшет ── */
+@media (max-width: 1024px) {
+  .how__step-icon { width: 68px; height: 68px; }
+  .how__step-icon svg { width: 24px; height: 24px; }
+  .how__flow::before { top: 55px; }
+  .how__arrow { margin-top: 38px; }
+  .how__step-body h3 { font-size: 14px; }
+  .how__step-body p { font-size: 13px; }
+}
+
+/* ── Адаптив: мобайл ── */
+@media (max-width: 700px) {
+  .how { padding: 30px 0 80px; }
+
+  /* Вертикальный стек на мобиле */
+  .how__flow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .how__flow::before { display: none; }
+
+  .how__arrow {
+    margin: 0 auto;
+    width: 16px;
+    transform: rotate(90deg);
+    padding: 4px 0;
+  }
+
+  .how__step {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+  }
+  .how__step-icon {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+  .how__step-icon svg { width: 22px; height: 22px; }
+  .how__step-num {
+    display: none;
+  }
+  .how__step-body { padding-top: 4px; }
+  .how__step-body h3 { font-size: 16px; margin-bottom: 4px; }
+  .how__step-body p { font-size: 14px; }
+
+  .how__result-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px 22px;
+  }
+  .how__result-text { font-size: 15px; }
 }

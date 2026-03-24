@@ -6,13 +6,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Certic">
-  <link rel="icon" href="./appfavicon.svg" type="image/svg+xml">
-
+  <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="apple-touch-icon" href="./images/icon.png">
   <title>Сертик* — подарочные сертификаты для вашего бизнеса</title>
-
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Dela+Gothic+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
@@ -26,8 +23,9 @@
       <img src="./images/logo.svg" alt="Сертик*" class="logo__img logo__img--header">
     </a>
     <nav class="nav" id="nav">
+      <a href="#how" class="nav__link">Как работает</a>
       <a href="#benefits" class="nav__link">Преимущества</a>
-      <a href="#tester" class="nav__link">Как работает</a>
+      <a href="#tester" class="nav__link">Тестер сервиса</a>
       <a href="#requirements" class="nav__link">Подключение</a>
       <a href="#pricing" class="nav__link">Тарифы</a>
       <a href="#faq" class="nav__link">FAQ</a>
@@ -38,8 +36,9 @@
     </button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
+     <a href="#how" class="mobile-link">Как работает</a>
     <a href="#benefits" class="mobile-link">Преимущества</a>
-    <a href="#tester" class="mobile-link">Как работает</a>
+    <a href="#tester" class="mobile-link">Тестер сервиса</a>
     <a href="#requirements" class="mobile-link">Подключение</a>
     <a href="#pricing" class="mobile-link">Тарифы</a>
     <a href="#faq" class="mobile-link">FAQ</a>
@@ -87,6 +86,102 @@
       <a href="#pricing" class="btn btn--ghost btn--xl">Подключиться</a>
     </div>
     </div>
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="sh reveal">
+      <div class="sh__label">принцип работы</div>
+      <h2 class="sh__title">Как это работает</h2>
+      <p class="sh__sub">Весь процесс приобретения сертификата становится автоматическим</p>
+    </div>
+
+    <div class="how__flow">
+
+      <div class="how__step reveal" data-d="0">
+        <div class="how__step-num">01</div>
+        <div class="how__step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>
+        </div>
+        <div class="how__step-body">
+          <h3>Клиент заполняет форму</h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="how__arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 16" fill="none"><path d="M0 8h36M28 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="how__step reveal" data-d="80">
+        <div class="how__step-num">02</div>
+        <div class="how__step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div class="how__step-body">
+          <h3>Оплачивает через ваш эквайринг</h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="how__arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 16" fill="none"><path d="M0 8h36M28 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="how__step reveal" data-d="160">
+        <div class="how__step-num">03</div>
+        <div class="how__step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+        </div>
+        <div class="how__step-body">
+          <h3>Генерируется сертификат с кодом</h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="how__arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 16" fill="none"><path d="M0 8h36M28 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="how__step reveal" data-d="240">
+        <div class="how__step-num">04</div>
+        <div class="how__step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="how__step-body">
+          <h3>Клиент получает его на email</h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="how__arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 16" fill="none"><path d="M0 8h36M28 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="how__step reveal" data-d="320">
+        <div class="how__step-num">05</div>
+        <div class="how__step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="how__step-body">
+          <h3>Вы гасите сертификат по коду</h3>
+          <p></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Итоговая строка -->
+    <div class="how__result reveal">
+      <div class="how__result-inner">
+        <span class="how__result-text">Весь цикл — покупка, генерация, доставка и учет полностью автоматизированы</span>
+        <a href="#tester" class="btn btn--primary btn--sm">Попробовать</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -145,9 +240,84 @@
       </div>
 
     </div>
-    <div class="plan__divider-benefits"></div>
-    <p class="sh__sub_benefits"> <span class="hero__note-first">*Окупается</span> с 1 продажи в месяц, и ваши клиенты имеют постоянный доступ к приобретению. </p>
+    <div class="how__result reveal">
+    <div class="how__result-inner">
+    <p class="how__result-text"> <span class="hero__note-first">*Окупается</span> с 1 продажи в месяц, и ваши сертификаты в постоянном доступе, учет без хаоса и рисков</p>
+      </div>
 
+      </div>
+  </div>
+</section>
+
+
+<!-- SECURITY -->
+<section class="security" id="security">
+  <div class="container">
+
+    <div class="sh reveal">
+      <div class="sh__label">безопасность</div>
+      <h2 class="sh__title">Ваши данные под защитой</h2>
+    </div>
+
+    <div class="sec__split">
+
+      <div class="sec__panel reveal" data-d="0">
+        <div class="sec__panel-text">
+          <h3 class="sec__panel-title"><span class="hero__note-first">Защита от подделок</span></h3>
+          <p class="sec__panel-desc">Каждый сертификат получает уникальный буквенно-цифровой код. Его невозможно угадать или подделать — проверка проходит мгновенно в один клик.</p>
+        </div>
+        <div class="sec__panel-visual">
+          <div class="sec__cert-mockup">
+            <div class="sec__cert-top">
+              <div class="sec__cert-logo">С</div>
+              <span class="sec__cert-label">Подарочный сертификат</span>
+            </div>
+            <div class="sec__cert-amount">5 000 ₽</div>
+            <div class="sec__cert-code-row">
+              <span class="sec__cert-code" id="certCodeDisplay">X7MUW7RM</span>
+              <span class="sec__cert-valid">✓ Действителен</span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="sec__panel reveal" data-d="120">
+        <div class="sec__panel-text">
+          <h3 class="sec__panel-title"><span class="hero__note-first">Облачное хранение</span></h3>
+          <p class="sec__panel-desc">Все данные хранятся в облаке. Потеряли телефон, сменили компьютер — ничего не пропадёт. Войдите с любого устройства и продолжайте работу.</p>
+        </div>
+        <div class="sec__panel-visual">
+          <div class="sec__cloud-mockup">
+            <div class="sec__cloud-devices">
+              <div class="sec__device sec__device--phone">
+                <div class="sec__device-screen">
+                  <div class="sec__device-row"></div>
+                  <div class="sec__device-row sec__device-row--short"></div>
+                  <div class="sec__device-row"></div>
+                </div>
+              </div>
+              <div class="sec__cloud-center">
+                <svg class="sec__cloud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                <div class="sec__cloud-sync-dot"></div>
+                <div class="sec__cloud-sync-dot" style="animation-delay:.4s"></div>
+                <div class="sec__cloud-sync-dot" style="animation-delay:.8s"></div>
+              </div>
+              <div class="sec__device sec__device--mac">
+                <div class="sec__device-screen">
+                  <div class="sec__device-row"></div>
+                  <div class="sec__device-row sec__device-row--short"></div>
+                  <div class="sec__device-row"></div>
+                </div>
+                <div class="sec__device-stand"></div>
+              </div>
+            </div>
+            <div class="sec__cloud-label">Синхронизировано на всех устройствах</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -155,8 +325,8 @@
 <section class="tester" id="tester">
   <div class="container">
     <div class="sh reveal">
-      <div class="sh__label">интерактивный тест</div>
-      <h2 class="sh__title">Как это работает</h2>
+      <div class="sh__label">тестер сервиса</div>
+      <h2 class="sh__title">Попробуйте прямо сейчас</h2>
       <p class="sh__sub">Попробуйте прямо сейчас — нажмите на кнопки с&nbsp;<span class="sh__hotspot-demo"><span class="hotspot hotspot--inline"></span></span></p>
       
     </div>
@@ -643,8 +813,8 @@
       </a>
       <span class="footer__copy">© 2026 Сертик*</span>
       </div>
-      <a href="#" class="footer__policy">Политика конфиденциальности</a>
-      <a href="#" class="footer__policy">Публичная оферта</a>
+      <a href="/privacy.html" target="_blank" class="footer__policy">Политика конфиденциальности</a>
+      <a href="/offer.html" target="_blank" class="footer__policy">Публичная оферта</a>
       <span class="footer__copy">
         Паутов Егор Александрович <br>
         ИНН: 332903774278 <br>

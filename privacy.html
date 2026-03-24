@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Политика конфиденциальности — Сертик</title>
+  <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f6fa; --bg2: #eef0f8; --surface: #ffffff;
+      --border: #e4e6f0; --ink: #0f1120; --ink2: #4a4e6a; --ink3: #8589a8;
+      --accent: #4f46e5; --accent-h: #3730c4;
+      --accent-light: #eef0ff; --accent-mid: #c7d2fe;
+      --font: 'Manrope', sans-serif;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .doc-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .doc-header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .doc-logo {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: var(--ink);
+    }
+    .doc-logo img { height: 28px; width: auto; }
+    .doc-back {
+      font-size: 13px; font-weight: 700;
+      color: var(--ink2); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      transition: all 0.2s var(--ease);
+    }
+    .doc-back:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); text-decoration: none; }
+
+    /* Content */
+    .doc-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+    .doc-hero {
+      margin-bottom: 48px;
+    }
+    .doc-label {
+      display: inline-block;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-light);
+      padding: 4px 12px; border-radius: 50px;
+      margin-bottom: 16px;
+    }
+    .doc-h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900; letter-spacing: -0.04em;
+      color: var(--ink); line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .doc-subtitle {
+      font-size: 15px; color: var(--ink3); font-weight: 600;
+    }
+
+    /* Divider */
+    .doc-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 12px 0 40px;
+    }
+
+    /* Sections */
+    .doc-section { margin-bottom: 36px; }
+    .doc-h2 {
+      font-size: 18px; font-weight: 800;
+      color: var(--ink); letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .doc-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 26px; height: 26px; flex-shrink: 0;
+      background: var(--accent-light); color: var(--accent);
+      border-radius: 8px; font-size: 12px; font-weight: 900;
+    }
+    .doc-p {
+      font-size: 15px; color: var(--ink2);
+      line-height: 1.8; margin-bottom: 10px; font-weight: 500;
+    }
+    .doc-list {
+      list-style: none; padding: 0;
+      margin: 8px 0 12px;
+      display: flex; flex-direction: column; gap: 7px;
+    }
+    .doc-list li {
+      font-size: 15px; color: var(--ink2); font-weight: 500;
+      padding-left: 18px; position: relative; line-height: 1.65;
+    }
+    .doc-list li::before {
+      content: '';
+      position: absolute; left: 0; top: 10px;
+      width: 6px; height: 6px;
+      background: var(--accent-mid); border-radius: 50%;
+    }
+
+    /* Реквизиты блок */
+    .req-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 14px 0;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .req-row {
+      display: flex; gap: 12px;
+      font-size: 14px; color: var(--ink2); font-weight: 500;
+    }
+    .req-row strong {
+      color: var(--ink); font-weight: 700;
+      min-width: 72px; flex-shrink: 0;
+    }
+
+    /* Footer */
+    .doc-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 13px; color: var(--ink3); font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .doc-wrap { padding: 40px 16px 60px; }
+      .doc-h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="doc-header">
+  <div class="doc-header-inner">
+    <a href="/" class="doc-logo">
+      <img src="./images/logo.svg" alt="Сертик">
+    </a>
+    <a href="/" class="doc-back">← На главную</a>
+  </div>
+</header>
+
+<div class="doc-wrap">
+  <div class="doc-hero">
+    <div class="doc-label">правовые документы</div>
+    <h1 class="doc-h1">Политика конфиденциальности</h1>
+    <p class="doc-subtitle">Сервис подарочных сертификатов «Сертик»</p>
+  </div>
+  <hr class="doc-divider">
+
+  <div class="doc-section">
+    <p class="doc-p">Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сервиса «Сертик».</p>
+  </div>
+
+  <div class="doc-section">
+    <h2 class="doc-h2"><span class="doc-num">1</span> Общие положения</h2>
+    <p class="doc-p">1.1. Оператором персональных данных является:</p>
+    <div class="req-card">
+      <div class="req-row"><strong>ФИО</strong> Паутов Егор Александрович</div>
+      <div class="req-row"><strong>ИНН</strong> 332903774278</div>
+      <div class="req-row"><strong>Email</strong> <a href="mailto:certicwebapp@gmail.com">certicwebapp@gmail.com</a></div>
+    </div>
+    <p class="doc-p">1.2. Использование сервиса означает согласие пользователя с данной Политикой.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2 class="doc-h2"><span class="doc-num">2</span> Какие данные собираются</h2>
+    <p class="doc-p">2.1. Сервис может собирать следующие персональные данные:</p>
+    <ul class="doc-list">
+      <li>имя</li>
+      <li>адрес электронной почты</li>
+      <li>номер телефона</li>
+      <li>иные данные, вводимые пользователем при использовании сервиса</li>
+    </ul>
+    <p class="doc-p">2.2. Также могут автоматически собираться технические данные:</p>
+    <ul class="doc-list">
+      <li>IP-адрес</li>
+      <li>cookie-файлы</li>
+      <li>информация о браузере и устройстве</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
+    <h2 class="doc-h2"><span class="doc-num">3</span> Цели обработки данных</h2>
+    <p class="doc-p">3.1. Персональные данные обрабатываются для:</p>
+    <ul class="doc-list">
+      <li>предоставления доступа к сервису</li>
+      <li>обработки заказов и отправки сертификатов</li>
+      <li>связи с пользователем</li>
+      <li>улучшения работы сервиса</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
+    <h2 class="doc-h2"><span class="doc-num">4</span> Хранение и защита данных</h2>
+    <p class="doc-p">4.1. Сервис принимает необходимые меры для защиты персональных данных от утраты, изменения и несанкционированного доступа.</p>
+    <p class="doc-p">4.2. Данные хранятся только в течение времени, необходимого для достижения целей обработки.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2 class="doc-h2"><span class="doc-num">5</span> Передача данных третьим лицам</h2>
+    <p class="doc-p">5.1. Сервис может передавать данные:</p>
+    <ul class="doc-list">
+      <li>платёжным сервисам (для обработки оплаты)</li>
+      <li>сервисам email-рассылок</li>
+    </ul>
+    <p class="doc-p">5.2. Передача осуществляется только в рамках выполнения функционала сервиса.</p>
+    <p class="doc-p">5.3. Персональные данные Покупателя передаются Пользователю сервиса (продавцу сертификата) с целью исполнения обязательств по предоставлению приобретённого сертификата.</p>
+    <p class="doc-p">5.4. Пользователь сервиса самостоятельно несёт ответственность за обработку полученных персональных данных в соответствии с законодательством.</p>
+    <p class="doc-p">5.5. Сервис не контролирует и не несёт ответственности за действия Пользователя сервиса по обработке персональных данных.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2 class="doc-h2"><span class="doc-num">6</span> Права пользователя</h2>
+    <p class="doc-p">6.1. Пользователь имеет право:</p>
+    <ul class="doc-list">
+      <li>запросить информацию о своих данных</li>
+      <li>потребовать их изменение или удаление</li>
+      <li>отозвать согласие на обработку</li>
+    </ul>
+    <p class="doc-p">Для этого необходимо написать на email: <a href="mailto:certicwebapp@gmail.com">certicwebapp@gmail.com</a></p>
+  </div>
+
+  <div class="doc-section">
+    <h2 class="doc-h2"><span class="doc-num">7</span> Использование cookie</h2>
+    <p class="doc-p">7.1. Сайт использует cookie-файлы для корректной работы и аналитики.</p>
+    <p class="doc-p">7.2. Пользователь может отключить cookie в настройках браузера.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2 class="doc-h2"><span class="doc-num">8</span> Заключительные положения</h2>
+    <p class="doc-p">8.1. Сервис вправе вносить изменения в Политику конфиденциальности.</p>
+    <p class="doc-p">8.2. Новая редакция вступает в силу с момента публикации на сайте.</p>
+  </div>
+
+</div>
+
+<footer class="doc-footer">
+  © 2026 Сертик · Паутов Егор Александрович · ИНН 332903774278 ·
+  <a href="mailto:certicwebapp@gmail.com">certicwebapp@gmail.com</a>
+</footer>
+
+</body>
+</html>

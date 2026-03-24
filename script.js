@@ -359,3 +359,52 @@ sections.forEach(s => secObs.observe(s));
   window.addEventListener('scroll', updateParallax, { passive: true });
 
 })();
+
+/* ═══════════════════════════════════════════════════════════
+   SECURITY SECTION
+   ═══════════════════════════════════════════════════════════ */
+(function () {
+  const secObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const delay = Number(e.target.dataset.d || 0);
+      setTimeout(() => e.target.classList.add('sec--active'), delay + 200);
+      secObs.unobserve(e.target);
+    });
+  }, { threshold: 0.35 });
+
+  document.querySelectorAll('.sec__panel').forEach(p => secObs.observe(p));
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   HOW IT WORKS — staggered appear + active step highlight
+   ═══════════════════════════════════════════════════════════ */
+(function () {
+  const steps = document.querySelectorAll('.how__step');
+  if (!steps.length) return;
+
+  // Staggered entrance
+  const howObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const delay = Number(e.target.dataset.d || 0);
+      setTimeout(() => e.target.classList.add('is-visible'), delay);
+      howObs.unobserve(e.target);
+    });
+  }, { threshold: 0.25 });
+
+  steps.forEach(s => howObs.observe(s));
+
+  // Active step: pulse each icon in sequence, looping
+  let current = 0;
+  function pulseNext() {
+    steps.forEach(s => s.classList.remove('is-active'));
+    steps[current].classList.add('is-active');
+    current = (current + 1) % steps.length;
+  }
+  // Start after entrance animation finishes
+  setTimeout(() => {
+    pulseNext();
+    setInterval(pulseNext, 1800);
+  }, 1800);
+})();
