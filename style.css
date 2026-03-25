@@ -2594,13 +2594,12 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* Активный шаг — акцентный */
 .how__step.is-active .how__step-icon {
-  background: var(--accent);
+  background: transparent;
   border-color: var(--accent);
   box-shadow: 0 8px 32px rgba(79,70,229,0.28);
   transform: scale(1.1);
 }
 .how__step.is-active .how__step-icon svg {
-  stroke: #fff;
   transform: scale(1.08);
 }
 .how__step.is-active .how__step-num {
