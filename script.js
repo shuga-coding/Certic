@@ -9,29 +9,40 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 10);
 }, { passive: true });
 
+const menuOverlay = document.getElementById('menuOverlay');
+
+function closeMenu() {
+  burger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+  if (menuOverlay) {
+    menuOverlay.classList.remove('visible');
+    setTimeout(() => menuOverlay.classList.remove('open'), 250);
+  }
+}
+
 burger.addEventListener('click', () => {
   const open = burger.classList.toggle('open');
   mobileMenu.classList.toggle('open', open);
   document.body.style.overflow = open ? 'hidden' : '';
-});
-
-// Close menu on tap outside
-document.addEventListener('click', (e) => {
-  if (!mobileMenu.classList.contains('open')) return;
-  if (!mobileMenu.contains(e.target) && !burger.contains(e.target)) {
-    burger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
+  if (menuOverlay) {
+    if (open) {
+      menuOverlay.classList.add('open');
+      requestAnimationFrame(() => menuOverlay.classList.add('visible'));
+    } else {
+      closeMenu();
+    }
   }
 });
 
-mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    burger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  });
+// Close menu on tap outside or overlay click
+document.addEventListener('click', (e) => {
+  if (!mobileMenu.classList.contains('open')) return;
+  if (!mobileMenu.contains(e.target) && !burger.contains(e.target)) closeMenu();
 });
+if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
 /* ═══════════════════════════════════════
    SCROLL REVEAL
@@ -43,7 +54,7 @@ const revealObs = new IntersectionObserver((entries) => {
     setTimeout(() => e.target.classList.add('in'), delay);
     revealObs.unobserve(e.target);
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.08 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
@@ -364,47 +375,62 @@ sections.forEach(s => secObs.observe(s));
    SECURITY SECTION
    ═══════════════════════════════════════════════════════════ */
 (function () {
-  const secObs = new IntersectionObserver((entries) => {
+  const panelObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       const delay = Number(e.target.dataset.d || 0);
       setTimeout(() => e.target.classList.add('sec--active'), delay + 200);
-      secObs.unobserve(e.target);
+      panelObs.unobserve(e.target);
     });
   }, { threshold: 0.35 });
 
-  document.querySelectorAll('.sec__panel').forEach(p => secObs.observe(p));
+  document.querySelectorAll('.sec__panel').forEach(p => panelObs.observe(p));
 })();
 
 /* ═══════════════════════════════════════════════════════════
-   HOW IT WORKS — staggered appear + active step highlight
+   HOW IT WORKS — appear on scroll (both directions) + hover-like active
    ═══════════════════════════════════════════════════════════ */
 (function () {
-  const steps = document.querySelectorAll('.how__step');
-  if (!steps.length) return;
-
-  // Staggered entrance
+  const steps   = Array.from(document.querySelectorAll('.how__step'));
+  const section = document.querySelector('.how');
+  if (!steps.length || !section) return;
+ 
+  const STEP_APPEAR = 200;  // мс между появлением соседних шагов
+  const STEP_HOLD   = 1800;  // мс сколько горит иконка на каждом шаге
+  const STEP_GAP    = 100;  // мс пауза между окончанием одного и началом следующего
+ 
+  let played = false;
+ 
+  function runSequence() {
+    if (played) return;
+    played = true;
+ 
+    // 1. Показываем все шаги по очереди (появление)
+    steps.forEach((s, i) => {
+      setTimeout(() => s.classList.add('is-visible'), i * STEP_APPEAR);
+    });
+ 
+    // 2. Последовательно подсвечиваем иконки
+    steps.forEach((s, i) => {
+      const onAt  = i * (STEP_HOLD + STEP_GAP) + 300;
+      const offAt = onAt + STEP_HOLD;
+ 
+      setTimeout(() => {
+        steps.forEach(x => x.classList.remove('is-active'));
+        s.classList.add('is-active');
+      }, onAt);
+ 
+      setTimeout(() => {
+        s.classList.remove('is-active');
+      }, offAt);
+    });
+  }
+ 
   const howObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const delay = Number(e.target.dataset.d || 0);
-      setTimeout(() => e.target.classList.add('is-visible'), delay);
-      howObs.unobserve(e.target);
+      if (e.isIntersecting) runSequence();
     });
-  }, { threshold: 0.25 });
-
-  steps.forEach(s => howObs.observe(s));
-
-  // Active step: pulse each icon in sequence, looping
-  let current = 0;
-  function pulseNext() {
-    steps.forEach(s => s.classList.remove('is-active'));
-    steps[current].classList.add('is-active');
-    current = (current + 1) % steps.length;
-  }
-  // Start after entrance animation finishes
-  setTimeout(() => {
-    pulseNext();
-    setInterval(pulseNext, 1800);
-  }, 1800);
+  }, { threshold: 0.15 });
+ 
+  howObs.observe(section);
 })();

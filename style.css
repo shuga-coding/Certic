@@ -411,6 +411,25 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+
+/* ── MENU BLUR OVERLAY ── */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(15,17,32,0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease);
+}
+.menu-overlay.open {
+  display: block;
+}
+.menu-overlay.visible {
+  opacity: 1;
+}
 .mobile-menu {
   display: none;
   flex-direction: column;
@@ -418,6 +437,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   background: var(--white);
   border-top: 1px solid var(--border);
   gap: 2px;
+  position: relative;
+  z-index: 100;
 }
 .mobile-menu.open { display: flex; }
 .mobile-link {
@@ -630,7 +651,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   z-index: 2;
   padding: 40px 0;
   background: var(--white);
-  box-shadow: 0 -8px 40px rgba(15,17,32,0.10);
+  
 }
 
 .bento {
@@ -1797,8 +1818,8 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 /* ── SCROLL REVEAL ───────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  transform: translateY(28px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
 }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
@@ -2297,6 +2318,14 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   display: flex;
   align-items: center;
   gap: 4px;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.sec__panel.sec--active .sec__cert-valid {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1.2s;
 }
 
 /* Щит-иконка в правом верхнем углу */
@@ -2471,6 +2500,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   background: var(--bg);
   position: relative;
   z-index: 2;
+  box-shadow: 0 -8px 40px rgba(15,17,32,0.10);
 }
 
 /* ── Поток шагов ── */
@@ -2485,13 +2515,18 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .how__arrow {
   flex-shrink: 0;
   width: 40px;
-  margin-top: 44px;
+  /* num(11px line-height~26px) + half icon(80px) = 66px — to vertically center on icon */
+  margin-top: 66px;
   color: var(--accent-mid);
   opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .how__arrow svg {
   width: 40px;
   height: 16px;
+  display: block;
 }
 
 /* ── Шаг ── */
@@ -2504,6 +2539,13 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   text-align: center;
   padding: 0 8px;
   position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.how__step.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Номер */
@@ -2555,9 +2597,11 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   background: var(--accent);
   border-color: var(--accent);
   box-shadow: 0 8px 32px rgba(79,70,229,0.28);
+  transform: scale(1.1);
 }
 .how__step.is-active .how__step-icon svg {
   stroke: #fff;
+  transform: scale(1.08);
 }
 .how__step.is-active .how__step-num {
   color: var(--accent-h);
@@ -2635,23 +2679,15 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   flex-shrink: 0;
 }
 
-/* ── Анимация появления шагов ── */
-.how__step {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
-}
-.how__step.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ── Анимация появления ── */
+/* opacity/transform уже объявлены выше в .how__step */
 
 /* ── Адаптив: планшет ── */
 @media (max-width: 1024px) {
   .how__step-icon { width: 68px; height: 68px; }
   .how__step-icon svg { width: 24px; height: 24px; }
   .how__flow::before { top: 55px; }
-  .how__arrow { margin-top: 38px; }
+  .how__arrow { margin-top: 60px; }
   .how__step-body h3 { font-size: 14px; }
   .how__step-body p { font-size: 13px; }
 }
@@ -2669,18 +2705,22 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .how__flow::before { display: none; }
 
   .how__arrow {
-    margin: 0 auto;
-    width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px auto;
+    width: 40px;
+    height: 24px;
     transform: rotate(90deg);
-    padding: 4px 0;
+    padding: 0;
   }
 
   .how__step {
     flex-direction: row;
     text-align: left;
-    align-items: flex-start;
+    align-items: center;
     gap: 16px;
-    padding: 14px 0;
+    padding: 12px 0;
   }
   .how__step-icon {
     width: 56px;
@@ -2697,8 +2737,11 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .how__step-body p { font-size: 14px; }
 
   .how__result-inner {
+    display: flex;
+    text-align: center;
+    justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
     padding: 20px 22px;
   }
