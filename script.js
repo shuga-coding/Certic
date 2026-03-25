@@ -434,3 +434,134 @@ sections.forEach(s => secObs.observe(s));
  
   howObs.observe(section);
 })();
+/* ═══════════════════════════════════════════════════════════
+   EDITOR PROMO DEMO ANIMATION
+   1. Курсор едет к строке "Для кого"
+   2. Клик → Анна Иванова пропадает, появляется синий маркер
+   3. Тянем маркер вниз под "Срок действия"
+   4. Отпускаем → строка "Для кого: Анна Иванова" появляется снизу
+   5. Пауза → сброс
+   ═══════════════════════════════════════════════════════════ */
+(function () {
+  var pin      = document.getElementById('epPin');
+  var cursor   = document.getElementById('epCursor');
+  var whoVal   = document.getElementById('epWhoVal');
+  var fieldWho = document.getElementById('epFieldWho');
+  var ghost    = document.getElementById('epGhostField');
+  var xEl      = document.getElementById('epDemoX');
+  var yEl      = document.getElementById('epDemoY');
+  var section  = document.querySelector('.editor-promo');
+
+  if (!pin || !cursor || !section) return;
+
+  var started = false;
+
+  function L(a, b, t) { return a + (b - a) * t; }
+  function eio(t) { return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3) / 2; }
+  function eo(t)  { return 1 - Math.pow(1 - t, 3); }
+
+  /* % от canvas */
+  var WX = 5,  WY = 16; /* "Для кого" строка   */
+  var AX = 5,  AY = 52; /* под "Срок действия" */
+
+  var CX_W = 446, CY_W = 74;   /* координаты для сайдбара */
+  var CX_A = 446, CY_A = 410;
+
+  var TOTAL = 5200;
+  var startTime = null;
+
+  function reset() {
+    pin.style.display = 'none';
+    pin.style.left = WX + '%'; pin.style.top = WY + '%';
+    var dot = pin.querySelector('.ep__pin-dot--active');
+    if (dot) dot.style.transform = 'scale(1)';
+    if (whoVal)   { whoVal.style.opacity = '1'; }
+    if (fieldWho) fieldWho.classList.remove('ep__cfield--selected');
+    if (ghost)    ghost.classList.remove('show');
+    cursor.style.left = '85%'; cursor.style.top = '8%';
+    if (xEl) xEl.textContent = CX_W;
+    if (yEl) yEl.textContent = CY_W;
+  }
+
+  function step(ts) {
+    if (!startTime) startTime = ts;
+    var p = Math.min((ts - startTime) / TOTAL, 1);
+    var t, l, tv, dot;
+
+    if (p < 0.13) {
+      /* Фаза 1: курсор летит к строке "Для кого" */
+      t = eio(p / 0.13);
+      cursor.style.left = L(85, WX + 3, t) + '%';
+      cursor.style.top  = L(8,  WY + 2, t) + '%';
+
+    } else if (p < 0.25) {
+      /* Фаза 2: курсор на месте, кликает — текст исчезает, маркер появляется */
+      t = (p - 0.13) / 0.12;
+      cursor.style.left = (WX + 3) + '%';
+      cursor.style.top  = (WY + 2) + '%';
+      /* text fade out */
+      if (whoVal) whoVal.style.opacity = Math.max(0, 1 - eio(Math.max(0, t - 0.2) / 0.5)) + '';
+      /* pin появляется */
+      if (t > 0.4) {
+        pin.style.display = 'flex';
+        if (fieldWho) fieldWho.classList.add('ep__cfield--selected');
+      }
+      pin.style.left = WX + '%'; pin.style.top = WY + '%';
+
+    } else if (p < 0.68) {
+      /* Фаза 3: тащим маркер вниз */
+      t  = eio((p - 0.25) / 0.63);
+      l  = L(WX, AX, t);
+      tv = L(WY, AY, t);
+      pin.style.left = l + '%'; pin.style.top = tv + '%';
+      cursor.style.left = (l + 3) + '%'; cursor.style.top = (tv + 2) + '%';
+      dot = pin.querySelector('.ep__pin-dot--active');
+      if (dot) dot.style.transform = 'scale(1.3)';
+      if (xEl) xEl.textContent = Math.round(L(CX_W, CX_A, t));
+      if (yEl) yEl.textContent = Math.round(L(CY_W, CY_A, t));
+
+    } else if (p < 0.76) {
+      /* Фаза 4: drop — отпускаем, курсор уходит, ghost-строка появляется */
+      t = eio((p - 0.68) / 0.08);
+      pin.style.left = AX + '%'; pin.style.top = AY + '%';
+      cursor.style.left = L(AX + 3, AX + 16, t) + '%';
+      cursor.style.top  = L(AY + 2, AY - 6,  t) + '%';
+      dot = pin.querySelector('.ep__pin-dot--active');
+      if (dot) dot.style.transform = 'scale(1)';
+      if (ghost && !ghost.classList.contains('show')) ghost.classList.add('show');
+      if (xEl) xEl.textContent = CX_A;
+      if (yEl) yEl.textContent = CY_A;
+
+    } else if (p < 0.9) {
+      /* Фаза 5: пауза */
+      pin.style.left = AX + '%'; pin.style.top = AY + '%';
+      cursor.style.left = (AX + 16) + '%'; cursor.style.top = (AY - 6) + '%';
+
+    } else {
+      /* Фаза 6: курсор уходит, сброс */
+      t = eo((p - 0.9) / 0.1);
+      cursor.style.left = L(AX + 16, 85, t) + '%';
+      cursor.style.top  = L(AY - 6,  8,  t) + '%';
+      if (t > 0.6) reset();
+    }
+
+    if (p < 1) {
+      requestAnimationFrame(step);
+    } else {
+      startTime = null;
+      requestAnimationFrame(step);
+    }
+  }
+
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !started) {
+        started = true;
+        reset();
+        requestAnimationFrame(step);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  obs.observe(section);
+})();

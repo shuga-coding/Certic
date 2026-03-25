@@ -1186,11 +1186,34 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* Admin Demo */
 .ademo {
-  background: var(--white);
+  background: linear-gradient(170deg, #0f1120 0%, #1a1440 55%, #0f1120 100%);
   padding: 50px 0 66px;
   margin-top: 80px;
-  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
 }
+.ademo::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(79,70,229,.15) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 80%, rgba(99,102,241,.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+.ademo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='1.5' cy='1.5' r='1.5' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+/* Ademo заголовки — белые на тёмном */
+.ademo .sh__label { color: #818cf8; background: rgba(99,102,241,.15); }
+.ademo .sh__title { color: #fff; }
+.ademo .sh__sub   { color: rgba(255,255,255,.55); }
+.ademo .af-text strong { color: #fff; }
+.ademo .af-text p { color: rgba(255,255,255,.5); }
+.ademo .af-icon { background: rgba(99,102,241,.2); border-color: rgba(99,102,241,.25); }
+.ademo .af-icon svg { stroke: #818cf8; }
 .ademo__layout {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -2745,4 +2768,403 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     padding: 20px 22px;
   }
   .how__result-text { font-size: 15px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   EDITOR PROMO SECTION
+   ═══════════════════════════════════════════════════════════ */
+
+.editor-promo {
+  padding: 50px 0 60px;
+  background: linear-gradient(170deg, #0f1120 0%, #1a1440 55%, #0f1120 100%);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Фоновый орнамент */
+.editor-promo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 80% 20%, rgba(79,70,229,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(99,102,241,.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.editor-promo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='1.5' cy='1.5' r='1.5' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Заголовки белые на тёмном фоне */
+.editor-promo .sh__label { color: #818cf8; background: rgba(99,102,241,.15); }
+.editor-promo .sh__title { color: #fff; margin-bottom: 30px;}
+.editor-promo .sh__sub   { color: rgba(255,255,255,.55); }
+
+/* ── Split layout ── */
+.ep__split {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ── Features list ── */
+.ep__features { display: flex; flex-direction: column; gap: 0; }
+
+.ep__feat {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  transition: border-color .2s;
+}
+.ep__feat:hover { border-bottom-color: rgba(99,102,241,.35); }
+.ep__feat:first-child { padding-top: 0; }
+
+.ep__feat-icon {
+  width: 42px; height: 42px; flex-shrink: 0;
+  background: rgba(99,102,241,.15);
+  border: 1px solid rgba(99,102,241,.25);
+  border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ep__feat-icon svg { width: 20px; height: 20px; stroke: #818cf8; }
+
+.ep__feat h3 {
+  font-size: 15px; font-weight: 800;
+  color: #fff; letter-spacing: -.02em;
+  margin-bottom: 5px; line-height: 1.2;
+}
+.ep__feat p {
+  font-size: 14px; font-weight: 600;
+  color: rgba(255,255,255,.45); line-height: 1.65;
+  margin: 0;
+}
+
+/* CTA блок */
+.ep__cta {
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ep__plans-badge { display: flex; gap: 8px; }
+.ep__plan-tag {
+  font-size: 11px; font-weight: 800;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 50px;
+}
+.ep__plan-tag--biz { background: rgba(99,102,241,.2); color: #818cf8; border: 1px solid rgba(99,102,241,.3); }
+.ep__plan-tag--pro { background: rgba(245,158,11,.15); color: #fbbf24; border: 1px solid rgba(245,158,11,.25); }
+.ep__cta p { font-size: 13px; color: rgba(255,255,255,.4); font-weight: 500; margin: 0; }
+
+/* ── Demo window ── */
+.ep__demo { position: relative; z-index: 1; }
+
+.ep__demo-window {
+  background: #16172a;
+  border: 1px solid rgba(99,102,241,.25);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(99,102,241,.15);
+}
+
+/* Chrome bar */
+.ep__demo-chrome {
+  background: #1f2040;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.ep__chrome-dots { display: flex; gap: 6px; }
+.ep__chrome-dots span {
+  width: 11px; height: 11px; border-radius: 50%;
+}
+.ep__chrome-dots span:nth-child(1) { background: #ff5f57; }
+.ep__chrome-dots span:nth-child(2) { background: #febc2e; }
+.ep__chrome-dots span:nth-child(3) { background: #28c840; }
+.ep__chrome-title {
+  flex: 1; text-align: center;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,.35);
+  letter-spacing: .01em;
+}
+.ep__chrome-actions { display: flex; gap: 6px; }
+.ep__chrome-actions span {
+  width: 28px; height: 11px;
+  background: rgba(255,255,255,.07); border-radius: 3px;
+}
+
+/* Demo body */
+.ep__demo-body {
+  display: flex;
+  height: 340px;
+}
+
+/* Sidebar */
+.ep__demo-sb {
+  width: 130px;
+  flex-shrink: 0;
+  background: #1a1b30;
+  border-right: 1px solid rgba(255,255,255,.06);
+  padding: 12px 10px;
+  overflow: hidden;
+}
+.ep__demo-sb-title {
+  font-size: 9px; font-weight: 800;
+  color: rgba(255,255,255,.3);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 10px;
+}
+.ep__demo-field {
+  display: flex; align-items: center; gap: 7px;
+  padding: 6px 8px; border-radius: 6px;
+  font-size: 11.5px; font-weight: 600;
+  color: rgba(255,255,255,.45);
+  cursor: default; margin-bottom: 2px;
+  transition: all .15s;
+}
+.ep__demo-field--active {
+  background: rgba(99,102,241,.2);
+  color: #c7d2fe;
+}
+.ep__demo-field--custom { color: rgba(250,204,21,.6); }
+.ep__demo-field-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(99,102,241,.6); flex-shrink: 0;
+}
+.ep__demo-field--active .ep__demo-field-dot { background: #818cf8; }
+.ep__demo-field-dot--custom { background: rgba(250,204,21,.6); }
+
+/* Props box */
+.ep__demo-prop-box {
+  background: rgba(99,102,241,.08);
+  border: 1px solid rgba(99,102,241,.18);
+  border-radius: 7px;
+  padding: 8px 9px;
+  margin-top: 10px;
+}
+.ep__demo-prop-label {
+  font-size: 8.5px; font-weight: 800;
+  color: #818cf8; text-transform: uppercase;
+  letter-spacing: .09em; margin-bottom: 8px;
+}
+.ep__demo-prop-row {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 6px;
+  margin-bottom: 5px; font-size: 10px;
+  color: rgba(255,255,255,.35);
+}
+.ep__demo-input {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 4px; padding: 2px 6px;
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,.7);
+  min-width: 36px; text-align: right;
+  font-family: monospace;
+}
+.ep__demo-prop-color {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 6px;
+  font-size: 10px; color: rgba(255,255,255,.35);
+}
+.ep__demo-swatch {
+  width: 28px; height: 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,.2);
+}
+
+/* Canvas */
+.ep__demo-canvas {
+  flex: 1; position: relative; overflow: hidden;
+  background: #252640;
+}
+
+/* Cert background — шаблон по образцу */
+.ep__cert-bg {
+  position: absolute; inset: 10px;
+  border-radius: 10px;
+  background: #5b50ee;
+  padding: 10px;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+
+.ep__cert-title {
+  text-align: center;
+  font-size: 11px; font-weight: 800;
+  color: #fff;
+  letter-spacing: -.01em;
+  margin: 4px 0 8px;
+  flex-shrink: 0;
+}
+
+.ep__cert-card {
+  background: #fff;
+  border-radius: 7px;
+  flex: 1;
+  padding: 10px 12px 8px;
+  display: flex; flex-direction: column;
+  gap: 5px;
+  overflow: hidden;
+}
+
+/* Поле с лейблом и линией */
+.ep__cfield {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.ep__cfield-label {
+  font-size: 8px; font-weight: 800;
+  color: #0f1120;
+  white-space: nowrap; flex-shrink: 0;
+}
+.ep__cfield-line {
+  flex: 1;
+  border-bottom: 1px solid #d0d3e8;
+  min-height: 14px;
+  position: relative;
+  display: flex; align-items: flex-end;
+  padding-bottom: 1px;
+}
+.ep__cfield-val {
+  display: flex;
+
+  font-size: 8px; font-weight: 600;
+  color: #0f1120;
+  white-space: nowrap;
+}
+.ep__cfield-val--code {
+  font-family: 'Courier New', monospace;
+  font-size: 7.5px; font-weight: 700;
+  color: #4f46e5; letter-spacing: .05em;
+}
+.ep__cfield-val--target {
+  color: #0f1120; font-weight: 700;
+  transition: opacity .3s;
+}
+
+.ep__cert-disclaimer {
+  font-size: 6.5px; color: #4f46e5;
+  margin-top: auto; padding-top: 4px;
+  font-weight: 600;
+}
+/* Ghost field — появляется после дропа */
+.ep__cfield--ghost {
+  display: none;
+  animation: ghostAppear 0.4s ease both;
+}
+.ep__cfield--ghost.show { display: flex; }
+@keyframes ghostAppear {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Выделение поля при клике */
+.ep__cfield--selected .ep__cfield-line {
+  border-bottom-color: #4f46e5;
+  background: rgba(79,70,229,.04);
+}
+
+/* Перетаскиваемый текст */
+.ep__drag-text {
+  position: absolute;
+  font-size: 8.5px; font-weight: 700;
+  color: #0f1120;
+  white-space: nowrap;
+  pointer-events: none;
+  background: rgba(255,255,255,.9);
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid #c7d2fe;
+  box-shadow: 0 2px 6px rgba(79,70,229,.2);
+  z-index: 20;
+  transform: translate(-2px, -8px);
+}
+.ep__drag-text.snapped {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Field pins */
+.ep__pin {
+  position: absolute;
+  display: flex; align-items: center; gap: 6px;
+  pointer-events: none;
+}
+/* ── Field pins на шаблоне ── */
+.ep__pin {
+  position: absolute; pointer-events: none;
+  display: flex; align-items: center; gap: 5px;
+  z-index: 20;
+}
+.ep__pin--static { opacity: .65; }
+.ep__pin--active { z-index: 30; }
+
+.ep__pin-dot {
+  width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.4);
+}
+.ep__pin-dot--active {
+  background: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79,70,229,.35), 0 2px 6px rgba(0,0,0,.4);
+}
+.ep__pin-dot--gray { background: rgba(255,255,255,.35); box-shadow: 0 1px 3px rgba(0,0,0,.3); }
+
+.ep__pin-lbl {
+  font-size: 8.5px; font-weight: 700; color: #fff;
+  background: #4f46e5; padding: 1px 6px; border-radius: 3px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,.3);
+}
+.ep__pin-lbl--gray {
+  background: rgba(255,255,255,.2); color: rgba(255,255,255,.7);
+  box-shadow: none;
+}
+
+/* Перетаскиваемый призрак (drag ghost) — курсор держит точку */
+.ep__drag-text { display: none; }
+.ep__pin--static { opacity: .7; }
+
+/* Cursor */
+.ep__cursor {
+  position: absolute;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.4));
+  transform: translate(-3px,-2px);
+}
+
+/* ── Адаптив ── */
+@media (max-width: 1024px) {
+  .ep__split { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 820px) {
+  .ep__split { grid-template-columns: 1fr; gap: 48px; }
+  .ep__demo { order: -1; }
+  .ep__demo-body { height: 280px; }
+  .ep__demo-sb { width: 110px; }
+}
+@media (max-width: 540px) {
+  .editor-promo { padding: 72px 0 80px; }
+  .ep__demo-body { height: 240px; }
+  .ep__demo-sb { display: none; }
+  .ep__feat-icon { width: 36px; height: 36px; }
+  .ep__feat h3 { font-size: 14px; }
+  .ep__feat p  { font-size: 13px; }
 }
