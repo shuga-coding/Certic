@@ -378,7 +378,7 @@
                 </div>
                 <div class="iph-field">
                   <div class="iph-flabel">Электронная почта</div>
-                  <div class="iph-finput iph-msg">certicwebapp@gmail.com</a></div>
+                  <div class="iph-finput iph-msg"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4f2c2a3d3b262c382a2d2e3f3f0f28222e2623612c2022">[email&#160;protected]</a></a></div>
                 </div>
                 <button class="iph-btn" id="buyBtn">Оплатить</button>
               </div>
@@ -844,9 +844,9 @@
 
                   <!-- Для кого: значение скрывается при клике -->
                   <div class="ep__cfield" id="epWhoVal">
-                    
+                    <div class="ep__cfield-label">Для кого:</div>
                     <div class="ep__cfield-line">
-                      <span class="ep__cfield-val" id="epWhoVal"><div class="ep__cfield-label" >Для кого:</div>Анна Иванова</span>
+                      <span class="ep__cfield-val" id="epWhoSpan">Анна Иванова</span>
                     </div>
                   </div>
 
@@ -883,29 +883,12 @@
                 <div class="ep__pin-lbl">Для кого</div>
               </div>
 
-              <!-- Статичные маркеры других полей -->
-              <div class="ep__pin ep__pin--static" style="left:5%;top:40%">
-                <div class="ep__pin-dot ep__pin-dot--gray"></div>
-                <div class="ep__pin-lbl ep__pin-lbl--gray">На сумму</div>
-              </div>
-              <div class="ep__pin ep__pin--static" style="left:5%;top:54%">
-                <div class="ep__pin-dot ep__pin-dot--gray"></div>
-                <div class="ep__pin-lbl ep__pin-lbl--gray">Код</div>
-              </div>
-              <div class="ep__pin ep__pin--static" style="left:5%;top:68%">
-                <div class="ep__pin-dot ep__pin-dot--gray"></div>
-                <div class="ep__pin-lbl ep__pin-lbl--gray">Дата</div>
-              </div>
-
               <!-- Курсор -->
-              <div class="ep__cursor" id="epCursor">
+              <div class="ep__cursor" id="epCursor" style="position:absolute;pointer-events:none;z-index:30;left:88%;top:6%">
                 <svg viewBox="0 0 20 20" width="20" height="20"><path d="M4 2l12 7-6 1-3 6z" fill="#4f46e5" stroke="#fff" stroke-width="1.2"/></svg>
               </div>
 
             </div>
-
-          </div>
-        </div>
       </div>
 
     </div>
@@ -1013,14 +996,13 @@
       <a href="./privacy.html" target="_blank" class="footer__policy">Политика конфиденциальности</a>
       <a href="./offer.html" target="_blank" class="footer__policy">Публичная оферта</a>
       <span class="footer__copy">
-        Паутов Егор Александрович <br>
+        > Паутов Егор Александрович <br>
         ИНН: 332903774278 <br>
-        <a href="mailto:certicwebapp@gmail.com"> <span>Email: certicwebapp@gmail.com</span></a>
+        <a href="mailto:certicwebapp@gmail.com">certicwebapp@gmail.com</a>
         </span>
     </div>
   </div>
 </footer>
-
 <script src="script.js"></script>
 </body>
 </html>

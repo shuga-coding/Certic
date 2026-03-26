@@ -436,23 +436,18 @@ sections.forEach(s => secObs.observe(s));
 })();
 /* ═══════════════════════════════════════════════════════════
    EDITOR PROMO DEMO ANIMATION
-   1. Курсор едет к строке "Для кого"
-   2. Клик → Анна Иванова пропадает, появляется синий маркер
-   3. Тянем маркер вниз под "Срок действия"
-   4. Отпускаем → строка "Для кого: Анна Иванова" появляется снизу
-   5. Пауза → сброс
    ═══════════════════════════════════════════════════════════ */
 (function () {
-  var pin      = document.getElementById('epPin');
-  var cursor   = document.getElementById('epCursor');
-  var whoVal   = document.getElementById('epWhoVal');
-  var fieldWho = document.getElementById('epFieldWho');
-  var ghost    = document.getElementById('epGhostField');
-  var xEl      = document.getElementById('epDemoX');
-  var yEl      = document.getElementById('epDemoY');
-  var section  = document.querySelector('.editor-promo');
+  var pin    = document.getElementById('epPin');
+  var cursor = document.getElementById('epCursor');
+  var whoRow = document.getElementById('epWhoVal');   /* весь ряд "Для кого" */
+  var ghost  = document.getElementById('epGhostField');
+  var canvas = document.getElementById('epDemoCanvas');
+  var xEl    = document.getElementById('epDemoX');
+  var yEl    = document.getElementById('epDemoY');
+  var section= document.querySelector('.editor-promo');
 
-  if (!pin || !cursor || !section) return;
+  if (!pin || !cursor || !canvas || !section) return;
 
   var started = false;
 
@@ -460,89 +455,104 @@ sections.forEach(s => secObs.observe(s));
   function eio(t) { return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3) / 2; }
   function eo(t)  { return 1 - Math.pow(1 - t, 3); }
 
-  /* % от canvas */
-  var WX = 5,  WY = 16; /* "Для кого" строка   */
-  var AX = 5,  AY = 52; /* под "Срок действия" */
+  function getCoords() {
+    var cr = canvas.getBoundingClientRect();
+    var cw = cr.width, ch = cr.height;
 
-  var CX_W = 446, CY_W = 74;   /* координаты для сайдбара */
-  var CX_A = 446, CY_A = 410;
+    var wr = whoRow ? whoRow.getBoundingClientRect() : null;
+    var wx = wr ? (wr.left - cr.left + 6) / cw * 100 : 5;
+    var wy = wr ? (wr.top  - cr.top  + wr.height * 0.5) / ch * 100 : 18;
+
+    /* Ghost: показываем невидимо чтобы снять координаты */
+    ghost.style.visibility = 'hidden';
+    ghost.style.display    = 'flex';
+    var gr = ghost.getBoundingClientRect();
+    ghost.style.display    = '';
+    ghost.style.visibility = '';
+
+    var ax = (gr.left - cr.left + 6) / cw * 100;
+    var ay = (gr.top  - cr.top  + gr.height * 0.5) / ch * 100 + 3; /* +3% ниже */
+
+    return { wx: wx, wy: wy, ax: ax, ay: ay };
+  }
 
   var TOTAL = 5200;
   var startTime = null;
+  var c = null;
 
   function reset() {
     pin.style.display = 'none';
-    pin.style.left = WX + '%'; pin.style.top = WY + '%';
     var dot = pin.querySelector('.ep__pin-dot--active');
     if (dot) dot.style.transform = 'scale(1)';
-    if (whoVal)   { whoVal.style.opacity = '1'; }
-    if (fieldWho) fieldWho.classList.remove('ep__cfield--selected');
-    if (ghost)    ghost.classList.remove('show');
-    cursor.style.left = '85%'; cursor.style.top = '8%';
-    if (xEl) xEl.textContent = CX_W;
-    if (yEl) yEl.textContent = CY_W;
+    /* Показываем весь ряд "Для кого" */
+    if (whoRow) { whoRow.style.opacity = '1'; whoRow.style.display = ''; }
+    if (ghost)  ghost.classList.remove('show');
+    cursor.style.left = '88%'; cursor.style.top = '6%';
+    if (xEl) xEl.textContent = '446';
+    if (yEl) yEl.textContent = '74';
   }
 
   function step(ts) {
-    if (!startTime) startTime = ts;
+    if (!startTime) { startTime = ts; c = getCoords(); }
     var p = Math.min((ts - startTime) / TOTAL, 1);
     var t, l, tv, dot;
 
     if (p < 0.13) {
       /* Фаза 1: курсор летит к строке "Для кого" */
       t = eio(p / 0.13);
-      cursor.style.left = L(85, WX + 3, t) + '%';
-      cursor.style.top  = L(8,  WY + 2, t) + '%';
+      cursor.style.left = L(88, c.wx + 1, t) + '%';
+      cursor.style.top  = L(6,  c.wy,     t) + '%';
 
-    } else if (p < 0.25) {
-      /* Фаза 2: курсор на месте, кликает — текст исчезает, маркер появляется */
-      t = (p - 0.13) / 0.12;
-      cursor.style.left = (WX + 3) + '%';
-      cursor.style.top  = (WY + 2) + '%';
-      /* text fade out */
-      if (whoVal) whoVal.style.opacity = Math.max(0, 1 - eio(Math.max(0, t - 0.2) / 0.5)) + '';
-      /* pin появляется */
-      if (t > 0.4) {
+    } else if (p < 0.26) {
+      /* Фаза 2: клик — ВЕСЬ ряд пропадает, маркер появляется на том же месте */
+      t = (p - 0.13) / 0.13;
+      /* курсор стоит на месте — не двигаем */
+      cursor.style.left = (c.wx + 1) + '%';
+      cursor.style.top  = c.wy + '%';
+      /* плавно скрываем весь ряд */
+      if (whoRow) whoRow.style.opacity = Math.max(0, 1 - eio(Math.max(0, t - 0.2) / 0.5)) + '';
+      /* маркер появляется точно там где курсор */
+      if (t > 0.45) {
         pin.style.display = 'flex';
-        if (fieldWho) fieldWho.classList.add('ep__cfield--selected');
+        pin.style.left = (c.wx + 1) + '%';  /* совпадает с cursor.left */
+        pin.style.top  = c.wy + '%';
       }
-      pin.style.left = WX + '%'; pin.style.top = WY + '%';
 
     } else if (p < 0.68) {
-      /* Фаза 3: тащим маркер вниз */
-      t  = eio((p - 0.25) / 0.63);
-      l  = L(WX, AX, t);
-      tv = L(WY, AY, t);
-      pin.style.left = l + '%'; pin.style.top = tv + '%';
-      cursor.style.left = (l + 3) + '%'; cursor.style.top = (tv + 2) + '%';
+      /* Фаза 3: тянем маркер вниз */
+      t  = eio((p - 0.26) / 0.42);
+      l  = L(c.wx, c.ax, t);
+      tv = L(c.wy, c.ay, t);
+      pin.style.left    = l + '%';       pin.style.top    = tv + '%';
+      cursor.style.left = (l + 1) + '%'; cursor.style.top = tv + '%';
       dot = pin.querySelector('.ep__pin-dot--active');
       if (dot) dot.style.transform = 'scale(1.3)';
-      if (xEl) xEl.textContent = Math.round(L(CX_W, CX_A, t));
-      if (yEl) yEl.textContent = Math.round(L(CY_W, CY_A, t));
+      if (yEl) yEl.textContent = Math.round(L(74, 410, t));
 
     } else if (p < 0.76) {
-      /* Фаза 4: drop — отпускаем, курсор уходит, ghost-строка появляется */
+      /* Фаза 4: drop — курсор отпускает, ghost появляется */
       t = eio((p - 0.68) / 0.08);
-      pin.style.left = AX + '%'; pin.style.top = AY + '%';
-      cursor.style.left = L(AX + 3, AX + 16, t) + '%';
-      cursor.style.top  = L(AY + 2, AY - 6,  t) + '%';
+      pin.style.left    = c.ax + '%'; pin.style.top = c.ay + '%';
+      cursor.style.left = L(c.ax + 1, c.ax + 10, t) + '%';
+      cursor.style.top  = L(c.ay,     c.ay - 6,  t) + '%';
       dot = pin.querySelector('.ep__pin-dot--active');
       if (dot) dot.style.transform = 'scale(1)';
+      /* скрываем ряд полностью перед появлением ghost */
+      if (whoRow) whoRow.style.display = 'none';
       if (ghost && !ghost.classList.contains('show')) ghost.classList.add('show');
-      if (xEl) xEl.textContent = CX_A;
-      if (yEl) yEl.textContent = CY_A;
+      if (yEl) yEl.textContent = '410';
 
     } else if (p < 0.9) {
       /* Фаза 5: пауза */
-      pin.style.left = AX + '%'; pin.style.top = AY + '%';
-      cursor.style.left = (AX + 16) + '%'; cursor.style.top = (AY - 6) + '%';
+      pin.style.left    = c.ax + '%';        pin.style.top    = c.ay + '%';
+      cursor.style.left = (c.ax + 10) + '%'; cursor.style.top = (c.ay - 6) + '%';
 
     } else {
       /* Фаза 6: курсор уходит, сброс */
       t = eo((p - 0.9) / 0.1);
-      cursor.style.left = L(AX + 16, 85, t) + '%';
-      cursor.style.top  = L(AY - 6,  8,  t) + '%';
-      if (t > 0.6) reset();
+      cursor.style.left = L(c.ax + 10, 88, t) + '%';
+      cursor.style.top  = L(c.ay - 6,  6,  t) + '%';
+      if (t > 0.65) reset();
     }
 
     if (p < 1) {
