@@ -319,6 +319,145 @@
       </div>
 
     </div>
+
+    <!-- Импорт и экспорт данных -->
+    <div class="sec__data reveal" data-d="60">
+
+      <div class="sec__data-half">
+        <div class="sec__data-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <div class="sec__data-content">
+          <h3 class="sec__panel-title"><span class="hero__note-first">Импорт из Excel</span></h3>
+          <p class="sec__panel-desc">Уже ведёте учёт в таблице? Загрузите базу в пару кликов — система сама распознает колонки и перенесёт все записи. Старые и новые сертификаты окажутся в одном месте.</p>
+        </div>
+        <div class="sec__data-visual">
+          <div class="sec__xl-mockup">
+            <!-- Строка с номерами колонок (Excel-style) -->
+            <div class="sec__xl-letters">
+              <div class="sec__xl-corner"></div>
+              <div>A</div><div>B</div><div>C</div><div>D</div>
+            </div>
+            <!-- Заголовок -->
+            <div class="sec__xl-row sec__xl-row--head">
+              <div class="sec__xl-num">1</div>
+              <div class="sec__xl-cell sec__xl-cell--head">Код</div>
+              <div class="sec__xl-cell sec__xl-cell--head">Сумма</div>
+              <div class="sec__xl-cell sec__xl-cell--head">Статус</div>
+              <div class="sec__xl-cell sec__xl-cell--head">Покупатель</div>
+            </div>
+            <!-- Строки данных -->
+            <div class="sec__xl-row">
+              <div class="sec__xl-num">2</div>
+              <div class="sec__xl-cell sec__xl-cell--code">X7MUW7RM</div>
+              <div class="sec__xl-cell">3 500 ₽</div>
+              <div class="sec__xl-cell"><span class="sec__xl-badge sec__xl-badge--paid">Активен</span></div>
+              <div class="sec__xl-cell sec__xl-cell--email">anna@mail.ru</div>
+            </div>
+            <div class="sec__xl-row">
+              <div class="sec__xl-num">3</div>
+              <div class="sec__xl-cell sec__xl-cell--code">ED3N38G7</div>
+              <div class="sec__xl-cell">5 000 ₽</div>
+              <div class="sec__xl-cell"><span class="sec__xl-badge sec__xl-badge--used">Использован</span></div>
+              <div class="sec__xl-cell sec__xl-cell--email">ivan@mail.ru</div>
+            </div>
+            <div class="sec__xl-row sec__xl-row--selected">
+              <div class="sec__xl-num">4</div>
+              <div class="sec__xl-cell sec__xl-cell--code">K5WX7NHM</div>
+              <div class="sec__xl-cell">2 000 ₽</div>
+              <div class="sec__xl-cell"><span class="sec__xl-badge sec__xl-badge--paid">Активен</span></div>
+              <div class="sec__xl-cell sec__xl-cell--email">olga@mail.ru</div>
+            </div>
+            <div class="sec__xl-row sec__xl-row--faded">
+              <div class="sec__xl-num">5</div>
+              <div class="sec__xl-cell sec__xl-cell--code">WGE7MV9G</div>
+              <div class="sec__xl-cell">1 500 ₽</div>
+              <div class="sec__xl-cell"><span class="sec__xl-badge sec__xl-badge--exp">Истёк</span></div>
+              <div class="sec__xl-cell sec__xl-cell--email">sergey@yandex.ru</div>
+            </div>
+            <!-- Нижняя строка-импульс -->
+            <div class="sec__xl-import-bar">
+              <span class="sec__xl-import-dot"></span>
+              Импортировано 4 записи из 4
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec__data-divider"></div>
+
+      <div class="sec__data-half">
+        <div class="sec__data-icon sec__data-icon--export">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </div>
+        <div class="sec__data-content">
+          <h3 class="sec__panel-title"><span class="hero__note-first">Экспорт в любой момент</span></h3>
+          <p class="sec__panel-desc">Выгрузите всю базу одним нажатием — по фильтру, статусу или целиком. Файл откроется в Excel или Google Таблицах. Ваши данные — это ваши данные.</p>
+        </div>
+        <div class="sec__data-visual sec__data-visual--export">
+          <div class="sec__export-mockup">
+            <!-- Шапка панели -->
+            <div class="sec__exp-panel">
+              <div class="sec__exp-panel-title">Выгрузка данных</div>
+              <!-- Фильтр -->
+              <div class="sec__exp-filters">
+                <button class="sec__exp-filter sec__exp-filter--active">Все</button>
+                <button class="sec__exp-filter">Активные</button>
+                <button class="sec__exp-filter">Использованные</button>
+              </div>
+              <!-- Статистика -->
+              <div class="sec__exp-stats">
+                <div class="sec__exp-stat">
+                  <span class="sec__exp-stat-num">48</span>
+                  <span class="sec__exp-stat-label">всего</span>
+                </div>
+                <div class="sec__exp-stat-divider"></div>
+                <div class="sec__exp-stat">
+                  <span class="sec__exp-stat-num" style="color:#16a34a">31</span>
+                  <span class="sec__exp-stat-label">активных</span>
+                </div>
+                <div class="sec__exp-stat-divider"></div>
+                <div class="sec__exp-stat">
+                  <span class="sec__exp-stat-num" style="color:#4338ca">12</span>
+                  <span class="sec__exp-stat-label">использовано</span>
+                </div>
+                <div class="sec__exp-stat-divider"></div>
+                <div class="sec__exp-stat">
+                  <span class="sec__exp-stat-num" style="color:var(--ink3)">5</span>
+                  <span class="sec__exp-stat-label">истекло</span>
+                </div>
+              </div>
+              <!-- Кнопка -->
+              <div class="sec__exp-btn">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13V3M5 8l5 5 5-5"/><path d="M3 17h14"/></svg>
+                Скачать CSV — 48 записей
+              </div>
+              <!-- Файл -->
+              <div class="sec__exp-file">
+                <div class="sec__exp-file-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="sec__exp-file-info">
+                  <span class="sec__exp-file-name">certificates_2025.csv</span>
+                  <span class="sec__exp-file-meta">4.2 КБ · обновлён только что</span>
+                </div>
+                <div class="sec__exp-file-check">✓</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -665,7 +804,7 @@
       <div class="plan reveal" data-d="0">
         <div class="plan__name">Старт <span class="plan__sub">— продажа через ссылку</span></div>
         <div class="plan__desc">Для мастеров и небольших бизнесов без сайта</div>
-        <div class="plan__setup">1500 ₽ <span>/ месяц</span></div>
+        <div class="plan__setup">1990 ₽ <span>/ месяц</span></div>
         <div class="plan__monthly">без комиссий с продаж </div>
         <div class="plan__divider"></div>
         <ul class="plan__list">
@@ -685,7 +824,7 @@
       <div class="plan plan--hot reveal" data-d="100">
         <div class="plan__name">Бизнес <span class="plan__sub">— продажи на сайте</span></div>
         <div class="plan__desc">Для компаний, у которых есть сайт</div>
-        <div class="plan__setup">2000 ₽ <span>/ месяц</span></div>
+        <div class="plan__setup">2990 ₽ <span>/ месяц</span></div>
         <div class="plan__monthly">без комиссий с продаж</div>
         <div class="plan__divider"></div>
         <ul class="plan__list">
@@ -704,7 +843,7 @@
         <div class="plan__name">Про <span class="plan__sub">— интеграция в систему</span></div>
         <div class="plan__desc">Для крупных проектов и кастомных сайтов</div>
         <div class="plan__setup"> <span>от</span> 30 000 ₽ <span>подключение</span></div>
-        <div class="plan__monthly"><strong>3 000 ₽</strong> / месяц <br>без комиссий с продаж</div>
+        <div class="plan__monthly"><strong>4 990 ₽</strong> / месяц <br>без комиссий с продаж</div>
         <div class="plan__divider"></div>
         <ul class="plan__list">
           <li><span class="plc">+</span> всё из тарифов Старт и Бизнес</li>
@@ -973,9 +1112,9 @@
         <strong class="clink-card__value">+7 (910) 036 55 22</strong>
       </a>
 
-      <a href="mailto:certicwebapp@gmail.com" class="clink-card">
+      <a href="/cdn-cgi/l/email-protection#e1828493958882968483809191a1868c80888dcf828e8c" class="clink-card">
         <span class="clink-card__label">Почта</span>
-        <strong class="clink-card__value">certicwebapp@gmail.com</strong>
+        <strong class="clink-card__value"><span class="__cf_email__" data-cfemail="f1929483859892869493908181b1969c90989ddf929e9c">[email&#160;protected]</span></strong>
       </a>
 
     </div>
