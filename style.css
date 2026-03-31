@@ -3537,7 +3537,6 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   .sec__data-divider {
     width: auto;
     height: 1.5px;
-    margin: 0 40px;
   }
   .sec__data-half {
     padding: 36px 32px 0;
